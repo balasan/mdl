@@ -103,13 +103,13 @@ Pages:
   
 Custom fields:  
 Objects:    
- *  Designer - custom feild ссылка на пост Дезайнера  
+*  Designer - custom feild ссылка на пост Дезайнера  
 Аbout  
- *  Subtitle  
- *  Collaborations  
+*  Subtitle  
+*  Collaborations  
 ТV  
- *  Subtitle  
- *  Video Url  
+*  Subtitle  
+*  Video Url  
 Press  
 * Url  
 * Date  
@@ -117,8 +117,7 @@ Press
 Menu  
 -заполняем через wordpress  
   
-## H2  
-APP.JS  
+## APP.JS  
 
 роутер уже установлен и работает, можно писать обычные линки и он сам разберется.  
 отклучить его можно используя class="external"  (eто только нужно для ссылок на внутринние pdf на пример)  
