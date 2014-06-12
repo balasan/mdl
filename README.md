@@ -35,16 +35,16 @@ box-sizing:border-box;
 ****    
 
 вместо  
-'''
+```
 .calls1 .classtwo{  
   ...    
 }  
 .calls1 .classthree{  
   ...    
 }  
-'''
+```
 теперь:  
-'''
+```
 .class1{  
   .class2{  
     ...  
@@ -53,7 +53,7 @@ box-sizing:border-box;
     ...  
   }  
 }  
-'''
+```
 
 чтобы SASS работал:  
 нужно установить ruby: http://rubyinstaller.org/  
