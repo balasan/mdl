@@ -35,14 +35,16 @@ box-sizing:border-box;
 ****    
 
 вместо  
+'''
 .calls1 .classtwo{  
   ...    
 }  
 .calls1 .classthree{  
   ...    
 }  
-
+'''
 теперь:  
+'''
 .class1{  
   .class2{  
     ...  
@@ -51,7 +53,8 @@ box-sizing:border-box;
     ...  
   }  
 }  
- 
+'''
+
 чтобы SASS работал:  
 нужно установить ruby: http://rubyinstaller.org/  
 потом:   
@@ -71,8 +74,13 @@ gem install animation --pre
  
 3 варианта:   
 десктоп, таблет, мобил  
-таблет: моб. меню, objects: 3 колонки, все остальное макс. 2 колонки  
-моб.: objects 2 колонки, все остальное 1 колонка  
+таблет: 
+* моб. меню
+* objects: 3 колонки 
+* все остальное макс. 2 колонки  
+моб.: 
+* objects 2 колонки 
+* все остальное 1 колонка  
  
 ширина всех елементов в %  
 padding, margin в основном в px, и по усмотрению  
@@ -80,31 +88,31 @@ padding, margin в основном в px, и по усмотрению
 ## CMS организация  
    
 Custom post types:  
-Books  
-Objects  
-Designers  
-Manufacturers  
-Press  
-TV  
+* Books  
+* Objects  
+* Designers  
+* Manufacturers  
+* Press  
+* TV  
   
 Pages:  
-Front-page quote  
-About  
-Antiques of the Future (текст архива)  
-The Show (для текста TV)  
+* Front-page quote  
+* About  
+* Antiques of the Future (текст архива)  
+* The Show (для текста TV)  
   
 Custom fields:  
 Objects:    
-  Designer - custom feild ссылка на пост Дезайнера  
+ *  Designer - custom feild ссылка на пост Дезайнера  
 Аbout  
-  Subtitle  
-  Collaborations  
+ *  Subtitle  
+ *  Collaborations  
 ТV  
-  Subtitle  
-  Video Url  
+ *  Subtitle  
+ *  Video Url  
 Press  
-  Url  
-  Date  
+* Url  
+* Date  
   
 Menu  
 -заполняем через wordpress  
