@@ -1,16 +1,11 @@
 $(document).ready(function() {
 
 	var baseurl = $('body').attr('data-base');
-	var basedir = $('body').attr('data-dir');
-	var easing = 'easeInOutQuart';
-	var uiready = false;
 	var viewportHeight = $(window).height();
 	var viewportWidth = $(window).width();
 	var docHeight = $(document).height();
-	var imagefadespeed = 300;
-	var History = window.History;
-	var rootUrl = History.getRootUrl();
-	var relativeUrl;
+
+
 	var lastPage = false;
 
 
@@ -46,24 +41,24 @@ $(document).ready(function() {
 		after: function($response) {
 
 			var pageInfo = $response.find('#content').data('info');
-			pageInfoGlobal = pageInfo;
 
 			if (!pageInfo)
 				pageInfo = {};
 
+
 			var header = $response.find('header').html();
 			var content = $response.find('#content').html();
-			var foot = $response.find('#footer').html();
+			var footer = $response.find('#footer').html();
 
 			targetTitle = $response.filter('title').text();
 
-			scrollToTop();
+			//implement saving scroll to router's History State
 
-			$("#content, #footer").stop(true).hide().empty()
+			$("#content, #footer, #header").stop(true).hide().empty()
 				.ahem(function() {
-					$("#content").append(one).data('info', pageInfo);
+					$("#content").append(content).data('info', pageInfo);
 					$('#footer').remove();
-					$("#wrapper").append($response.find('#footer'))
+					$("#wrapper").append(footer)
 				}).fadeIn('slow');
 
 			initPage();
@@ -78,8 +73,11 @@ $(document).ready(function() {
 
 	function initPage() {
 
+		var pageInfo = $('#content').data('info');
 
 
+
+		//re-init infinite scroll
 		lastPage = false;
 	}
 
@@ -152,10 +150,11 @@ $(document).ready(function() {
 					var next = $data.find('#nextPage');
 					var items = $data.find('.gridContainer').children();
 
+					//здесь нужно добавить items в isotope
+
 					// container.isotope('reLayout');
 					// isotopeSetMobileItemClass();
-
-					container.append(items);
+					// container.append(items);
 
 					$('#nextPage').replaceWith(next);
 					$('.loading-gif').hide();
@@ -170,6 +169,8 @@ $(document).ready(function() {
 			});
 		}
 	});
+
+
 
 	function scrollToTop() {
 		$('body, html').animate({

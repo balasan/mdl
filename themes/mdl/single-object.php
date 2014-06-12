@@ -7,12 +7,6 @@
       
       <?php
         while (have_posts()) : the_post();
-        $category = get_the_category();
-        $sub = $category[0]->cat_name;
-        if ($sub == ""){
-          $obj = get_post_type_object( get_post_type( ) );
-          $sub = $obj->labels->singular_name;
-        }
       ?>
 
         <?php the_title() ?>
