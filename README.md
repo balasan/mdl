@@ -101,15 +101,19 @@ Pages:
 * Antiques of the Future (текст архива)  
 * The Show (для текста TV)  
   
-Custom fields:  
+#### Custom fields:
+
 Objects:    
 *  Designer - custom feild ссылка на пост Дезайнера  
+
 Аbout  
 *  Subtitle  
 *  Collaborations  
+
 ТV  
 *  Subtitle  
 *  Video Url  
+
 Press  
 * Url  
 * Date  
