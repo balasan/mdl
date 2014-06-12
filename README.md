@@ -5,13 +5,13 @@
 фикс/стики скролл:  
 https://github.com/leafo/sticky-kit  
 
-ytplayer (уже вклучен):  
+ytplayer (уже включен):  
 https://github.com/pupunzi/jquery.mb.YTPlayer/wiki  
 
-isotope (yже вклучен):
+isotope (yже включен):
 http://isotope.metafizzy.co/  
 
-swiper (как в DIS, уже вклучен):  
+swiper (как в DIS, уже включен):  
 http://www.idangero.us/sliders/swiper/   
 
 wordpress:
@@ -21,7 +21,7 @@ http://www.advancedcustomfields.com/
 ## SASS:
 
 ****  
-у всех елементов уже стоит:  
+у всех элементов уже стоит:  
 box-sizing:border-box;  
 (http://www.paulirish.com/2012/box-sizing-border-box-ftw/)  
 так что можно спокойно ставить:  
@@ -29,7 +29,7 @@ box-sizing:border-box;
   width:100%;  
   padding:100px;  
 }   
-и ширина останетса 100%;  
+и ширина останется 100%;  
 это упрощает все респонсив элементы  
 :)   
 ****    
@@ -82,7 +82,7 @@ gem install animation --pre
 * objects 2 колонки 
 * все остальное 1 колонка  
  
-ширина всех елементов в %  
+ширина всех элементов в %  
 padding, margin в основном в px, и по усмотрению  
 
 ## CMS организация  
@@ -104,7 +104,7 @@ Pages:
 #### Custom fields:
 
 Objects:    
-*  Designer - custom feild ссылка на пост Дезайнера  
+*  Designer - custom feild ссылка на пост Дизайнера  
 
 Аbout  
 *  Subtitle  
@@ -124,12 +124,14 @@ Menu
 ## APP.JS  
 
 роутер уже установлен и работает, можно писать обычные линки и он сам разберется.  
-отклучить его можно используя class="external"  (eто только нужно для ссылок на внутринние pdf на пример)  
+отключить его можно используя class="external"  (eто только нужно для ссылок на внутренние pdf на пример)  
   
-распозновать страницы можно через атрибут data-info элемента #content   
+распознавать страницы можно через атрибут data-info элемента #content   
  
 есть код для Search - твой из TWAAS  
 eго нужно будет подправить  
+
+есть код Isotop, нужно подправить
 
 есть код для Infinte Scroll  
 должен работать, но нужно будет подключить к Isotope  
