@@ -3,8 +3,8 @@
 // update_option('siteurl','http://192.168.1.3/wordpress');
 // update_option('home','http://192.168.1.3/wordpress');
 
-update_option('upload_url_path', 'http://kehindewiley.com/wp/wp-content/uploads');
-// update_option('upload_url_path', 'http://localhost:8888/kw/wp-content/uploads');
+// update_option('upload_url_path', 'http://kehindewiley.com/wp/wp-content/uploads');
+update_option('upload_url_path', 'http://localhost:8888/mdl/wp-content/uploads');
 
 
 add_filter( 'show_admin_bar', '__return_false' );
@@ -57,7 +57,7 @@ function create_post_type() {
 		array(
 			'labels' => array(
 				'name' => __( 'Objects' ),
-				'singular_name' => __( 'Objects' )
+				'singular_name' => __( 'Object' )
 			),
 			'public' => true,
 			'publically_queryable' => true,
@@ -67,36 +67,36 @@ function create_post_type() {
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
-			'taxonomies' => array('category')
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
+			'taxonomies' => array('category','post_tag')
 		)
 	);
 
-   register_taxonomy(
-      'object_categories',
-      'objects',
-      array(
-          'labels' => array(
-              'name' => 'Object Categories',
-              'add_new_item' => 'Add New Object Category',
-              'new_item_name' => "New Object Category"
-          ),
-          'rewrite'			=> array(
-				'slug' 			=> 'object-cat', // This controls the base slug that will display before each term
-				'with_front' 	=> false // Don't display the category base before
-				),
-          'show_ui' => true,
-          'show_tagcloud' => false,
-          'hierarchical' => true,
-          'hasArchive' => true
-      )
-  );
+  //  register_taxonomy(
+  //     'object_categories',
+  //     'objects',
+  //     array(
+  //         'labels' => array(
+  //             'name' => 'Object Categories',
+  //             'add_new_item' => 'Add New Object Category',
+  //             'new_item_name' => "New Object Category"
+  //         ),
+  //         'rewrite'			=> array(
+		// 		'slug' 			=> 'object-cat', // This controls the base slug that will display before each term
+		// 		'with_front' 	=> false // Don't display the category base before
+		// 		),
+  //         'show_ui' => true,
+  //         'show_tagcloud' => false,
+  //         'hierarchical' => true,
+  //         'hasArchive' => true
+  //     )
+  // );
 
 
 	register_post_type( 'Designer',
 		array(
 			'labels' => array(
-				'name' => __( 'Designer' ),
+				'name' => __( 'Designers' ),
 				'singular_name' => __( 'Designer' )
 			),
 			'public' => true,
@@ -105,8 +105,25 @@ function create_post_type() {
 			'rewrite' => array('slug' => 'projects', 'with_front' => false),
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
-			'taxonomies' => array('category')
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
+			'taxonomies' => array('category','post_tag')
+		)
+	);
+
+	register_post_type( 'Manufacturer',
+		array(
+			'labels' => array(
+				'name' => __( 'Manufacturers' ),
+				'singular_name' => __( 'Manufacturer' )
+			),
+			'public' => true,
+			'publically_queryable' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'projects', 'with_front' => false),
+			'hierarchical' => true,
+			// page-attributes enables parent/child for posts
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
+			'taxonomies' => array('category','post_tag')
 		)
 	);
 

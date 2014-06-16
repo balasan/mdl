@@ -1,3 +1,4 @@
+
 <?php get_header(); ?>
 
 
@@ -5,10 +6,17 @@
 
   <div class="post">
     <div class="post-inner">
+
+
+
       
 
     </div><!-- end post-inner -->
   </div><!-- end post -->
 </div><!-- end content -->
+
+
+
+
 
 <?php get_footer(); ?>
