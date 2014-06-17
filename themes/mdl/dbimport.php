@@ -1,3 +1,5 @@
+
+
 <?php
   $MM_db1_HOSTNAME = "205.178.146.25";
   $MM_db1_DATABASE = "mysql:antiques_atf";
@@ -247,7 +249,7 @@ function grabObjects(){
       }
 
     }
-      // if($counter < 2){
+      if($counter < 2){
         echo $postContent;
         // echo $counter;
         $postId = createPost($postTitle, $postContent, $postType, $postTags);
@@ -264,7 +266,7 @@ function grabObjects(){
         }
         add_post_meta($postId, 'designer_id', $designerId);
         add_post_meta($postId, 'manufacturer_id', $manufacturerId);
-      // }
+      }
       $counter++; 
       echo "<br>";
       echo "<br>";

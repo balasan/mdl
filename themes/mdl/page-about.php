@@ -7,8 +7,6 @@
   <div class="post">
     <div class="post-inner">
 
-
-
       
 
     </div><!-- end post-inner -->
