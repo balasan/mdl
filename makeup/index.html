@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title>Example</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css?1" media="all">
+    <link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css" media="all">
+    
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
+    
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    
+    <script type="text/javascript" src="js/jquery.stickem.js"></script>
+    <script type="text/javascript" src="js/idangerous.swiper-2.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.scripts.js?1"></script>
+
+    <!--[if lt IE 9]>
+       <script>
+          document.createElement('header');
+          document.createElement('nav');
+          document.createElement('section');
+          document.createElement('article');
+          document.createElement('aside');
+          document.createElement('footer');
+       </script>
+
+       <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+    
+</head>
+
+<body>
+	
+    <div id="wrapper">
+    	<header id="header">
+            <nav id="navigation">
+                <ul class="menu">
+                    <!--<li><a href="#">HOME</a></li>-->
+                	<li><a href="#" class="books">BOOKS</a></li>
+                    <li><a href="#" class="aotf">ANTIQUES OF THE FUTURE</a></li>
+                    <li><a href="#" class="about">ABOUT</a></li>
+                    <li><a href="#" class="tv">TV</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div id="container">
+        	<div id="slider">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="images/image02.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/image03.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <a class="arrow-left" href="#">dwrqwrqw</a> 
+                <a class="arrow-right" href="#">wwrqwrqwr</a>
+            </div>
+            
+            
+            <script type="text/javascript">
+				$(function(){
+					var mySwiper = $('.swiper-container').swiper({
+						mode: 'horizontal',
+						loop: true
+					});
+					$('.arrow-left').on('click', function(e){
+						e.preventDefault();
+						mySwiper.swipePrev();
+					});
+					$('.arrow-right').on('click', function(e){
+						e.preventDefault()
+						mySwiper.swipeNext()
+					});
+				});
+			</script>
+        	<!-- ABOUT
+            <div id="about">
+            	
+            	<div class="person">
+                	<div class="aside">
+                    	<div class="image">
+                        	<img src="images/image01.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Lisa Roberts</h2>
+                            <h3>High Design promotor and connoisseur</h3>
+                        	<p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="person">
+                	<div class="aside">
+                    	<div class="image">
+                        	<img src="images/image01.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Lisa Roberts</h2>
+                            <h3>High Design promotor and connoisseur</h3>
+                        	<p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>-->
+            
+            
+            <div id="videos">
+            	
+            	<div class="video stickem-container">
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Episode 101</h2>
+                            <h3>What Can I Say? It’s a Gift.</h3>
+                        	<p>While working on the “Blurring the Lines” chapter, Lisa Roberts and her team explore the intermixture of design, art, and craft. Lisa and Maria visit CerealArt where Lisa experiments with a "water pipe."
+Continuing her search for an illuminating product for her book DesignPOP, Lisa travels to New York City and meets up with Artist Michele Oka Doner to discuss what it means to blur the lines.<br>
+Not far from Lisa in Brooklyn, Kelly and Lisa B. tempt fate with a precarious photo shoot that ultimately ends in disaster. Maria is called upon to save the day; can she do it?<br>
+Lisa and her team return to the office and all try their hand at creating and designing their own shoes. The ladies model their creations with a mini fashion show. While some rise to the occasion with their designs, others fail to utilize their own creativity.</p>
+                        </div>
+                    </div>
+                    <div class="aside">
+                    	<div class="image stickem">
+                        	<div class="player">
+                            	<div style="background: #c7c7c7; height: 282px;">YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video stickem-container">
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Episode 101</h2>
+                            <h3>What Can I Say? It’s a Gift.</h3>
+                        	<p>While working on the “Blurring the Lines” chapter, Lisa Roberts and her team explore the intermixture of design, art, and craft. Lisa and Maria visit CerealArt where Lisa experiments with a "water pipe."
+Continuing her search for an illuminating product for her book DesignPOP, Lisa travels to New York City and meets up with Artist Michele Oka Doner to discuss what it means to blur the lines.<br>
+Not far from Lisa in Brooklyn, Kelly and Lisa B. tempt fate with a precarious photo shoot that ultimately ends in disaster. Maria is called upon to save the day; can she do it?<br>
+Lisa and her team return to the office and all try their hand at creating and designing their own shoes. The ladies model their creations with a mini fashion show. While some rise to the occasion with their designs, others fail to utilize their own creativity.</p>
+                        </div>
+                    </div>
+                    <div class="aside">
+                    	<div class="image stickem">
+                        	<div class="player">
+                            	<div style="background: #c7c7c7; height: 282px;">YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video stickem-container">
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Episode 101</h2>
+                            <h3>What Can I Say? It’s a Gift.</h3>
+                        	<p>While working on the “Blurring the Lines” chapter, Lisa Roberts and her team explore the intermixture of design, art, and craft. Lisa and Maria visit CerealArt where Lisa experiments with a "water pipe."
+Continuing her search for an illuminating product for her book DesignPOP, Lisa travels to New York City and meets up with Artist Michele Oka Doner to discuss what it means to blur the lines.<br>
+Not far from Lisa in Brooklyn, Kelly and Lisa B. tempt fate with a precarious photo shoot that ultimately ends in disaster. Maria is called upon to save the day; can she do it?<br>
+Lisa and her team return to the office and all try their hand at creating and designing their own shoes. The ladies model their creations with a mini fashion show. While some rise to the occasion with their designs, others fail to utilize their own creativity.</p>
+							<p>While working on the “Blurring the Lines” chapter, Lisa Roberts and her team explore the intermixture of design, art, and craft. Lisa and Maria visit CerealArt where Lisa experiments with a "water pipe."
+Continuing her search for an illuminating product for her book DesignPOP, Lisa travels to New York City and meets up with Artist Michele Oka Doner to discuss what it means to blur the lines.<br>
+Not far from Lisa in Brooklyn, Kelly and Lisa B. tempt fate with a precarious photo shoot that ultimately ends in disaster. Maria is called upon to save the day; can she do it?<br>
+Lisa and her team return to the office and all try their hand at creating and designing their own shoes. The ladies model their creations with a mini fashion show. While some rise to the occasion with their designs, others fail to utilize their own creativity.</p>
+                        </div>
+                    </div>
+                    <div class="aside">
+                    	<div class="image stickem">
+                        	<div class="player">
+                            	<div style="background: #c7c7c7; height: 282px;">YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video stickem-container">
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Episode 101</h2>
+                            <h3>What Can I Say? It’s a Gift.</h3>
+                        	<p>While working on the “Blurring the Lines” chapter, Lisa Roberts and her team explore the intermixture of design, art, and craft. Lisa and Maria visit CerealArt where Lisa experiments with a "water pipe."
+Continuing her search for an illuminating product for her book DesignPOP, Lisa travels to New York City and meets up with Artist Michele Oka Doner to discuss what it means to blur the lines.<br>
+Not far from Lisa in Brooklyn, Kelly and Lisa B. tempt fate with a precarious photo shoot that ultimately ends in disaster. Maria is called upon to save the day; can she do it?<br>
+Lisa and her team return to the office and all try their hand at creating and designing their own shoes. The ladies model their creations with a mini fashion show. While some rise to the occasion with their designs, others fail to utilize their own creativity.</p>
+                        </div>
+                    </div>
+                    <div class="aside">
+                    	<div class="image stickem">
+                        	<div class="player">
+                            	<div style="background: #c7c7c7; height: 282px;">YouTube</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <!-- BOOKS
+            <div id="books">
+            	
+            	<div class="books stickem-container">
+                	<div class="aside">
+                    	<div class="image stickem">
+                        	<div class="wrap">
+                            	<img src="images/image05.jpg" alt="">
+                                <img src="images/image04.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Lisa Roberts</h2>
+                            <h3>High Design promotor and connoisseur</h3>
+                        	<p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="books stickem-container">
+                	<div class="aside">
+                    	<div class="image stickem">
+                        	<div class="wrap">
+                            	<img src="images/image04.jpg" alt="">
+                            	<img src="images/image05.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Lisa Roberts</h2>
+                            <h3>High Design promotor and connoisseur</h3>
+                        	<p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="books stickem-container">
+                	<div class="aside">
+                    	<div class="image stickem">
+                        	<div class="wrap">
+                            	<img src="images/image04.jpg" alt="">
+                            	<img src="images/image05.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Lisa Roberts</h2>
+                            <h3>High Design promotor and connoisseur</h3>
+                        	<p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="books stickem-container">
+                	<div class="aside">
+                    	<div class="image stickem">
+                        	<div class="wrap">
+                            	<img src="images/image04.jpg" alt="">
+                            	<img src="images/image05.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                    	<div class="main">
+                        	<h2>Lisa Roberts</h2>
+                            <h3>High Design promotor and connoisseur</h3>
+                        	<p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                            <p>Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            -->
+            
+			<!--
+            <div id="grid">
+            	<article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="300">2</article>
+                <article class="item"><img src="http://i.imgur.com/BjZDpte.jpg" height="200">3</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="100">4</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="200">5</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="100">6</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="300">7</article>
+                <article class="item"><img src="http://i.imgur.com/BjZDpte.jpg" height="300">8</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="200">9</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="300">2</article>
+                <article class="item"><img src="http://i.imgur.com/BjZDpte.jpg" height="200">3</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="100">4</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="200">5</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="100">6</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="300">7</article>
+                <article class="item"><img src="http://i.imgur.com/BjZDpte.jpg" height="300">8</article>
+                <article class="item"><img src="http://i.imgur.com/d4c5KdG.jpg" height="200">9</article>
+            </div>
+			-->
+            
+            <footer id="footer">
+            	<nav id="footer-nav">
+                	<ul class="menu">
+                    	<li><a href="#">Books</a></li>
+                        <li><a href="#">Antiques of the Future</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">TV</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <ul id="socs">
+                	<li><a href="#" class="fb">FaceBook</a></li>
+                    <li><a href="#" class="tw">Twitter</a></li>
+                    <li><a href="#" class="in">Instagram</a></li>
+                </ul>
+            </footer>
+    	</div><!-- container -->
+    </div>
+    
+    <div id="search">
+    	<div class="search">
+    		<h2>Search:</h2>
+        	<div class="search-field"><input type="text" value="Keyword, Designer"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
