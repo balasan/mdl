@@ -1,6 +1,38 @@
 * { margin: 0; padding: 0; }
 
-body { font-family: "Gotham", sans-serif; font-size:18px; color:#4c5e6c; background: #020a51; line-height: normal; }
+body {
+	font-family: "Gotham", sans-serif;
+	font-size: 14px;
+	color: #4c5e6c;
+	background: white;
+	line-height: normal;
+	
+	height: auto !important;  
+	height: 100%;  
+	min-height: 100%;  
+	position: relative;
+	
+	border-left: 9px solid #020a51;
+	border-right: 9px solid #020a51;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+body:after {
+	content: '.';
+	text-indent: -99999px;
+	position: absolute;
+	overflow: hidden;
+	height: 9px;
+	background: #020a51;
+	width: 100%;
+	position: fixed;
+	bottom: 0; left: 0;
+}
 
 @font-face {
 	font-family: "Gotham";
@@ -21,9 +53,11 @@ body { font-family: "Gotham", sans-serif; font-size:18px; color:#4c5e6c; backgro
 	src: url("../fonts/Gotham-Book.otf") format("opentype");
 }
 
-html, body, #wrapper { height: 100%; }
+html { height: 100%; } 
 
-#wrapper { height: auto; min-height: 100%; }
+/* html, body, #wrapper { height: 100%; }
+
+#wrapper { height: auto; min-height: 100%; } */
 
 a { color: #02589a; text-decoration:none; }
 a:hover { text-decoration:none; }
@@ -39,8 +73,7 @@ img { border:none; }
 
 #wrapper {
 	background: #fff;
-	border: 9px solid #020a51;
-	padding: 0 12px 12px 12px;
+	padding: 105px 0 21px 0;
 	
 	-webkit-box-sizing: border-box;
    	   -moz-box-sizing: border-box;
@@ -50,10 +83,31 @@ img { border:none; }
 }
 
 #header {
-	padding: 28px 0 0 0;
-	height: 77px;
+	position: fixed;
+	height: 105px;
+	top: 0; left: 0;
+	width: 100%;
+	z-index: 1000;
+	padding: 0 9px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
 }
-
+#navigation {
+	border-top: 9px solid #020a51;
+	padding: 23px 12px 0 12px;
+	background: #fff;
+	height: 72px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
 #navigation .menu {
 	font-weight: 500;
 	color: #777;
@@ -97,48 +151,208 @@ img { border:none; }
 	border-bottom: 4px solid #c422f7;
 }
 
-#wrapper.nav-fixed {
-	padding-top: 105px;
-}
-#header {
-	top: -105px;
-	
-	-webkit-transition: top 0.3s ease-out;
-	   -moz-transition: top 0.3s ease-out;
-		 -o-transition: top 0.3s ease-out;
-			transition: top 0.3s ease-out;	
-}
-#wrapper.nav-fixed #header {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	z-index: 9999;
-	height: 63px;
-	padding: 0 12px 0 12px;
-	
-	-webkit-box-sizing: border-box;
-   	   -moz-box-sizing: border-box;
-    	-ms-box-sizing: border-box;
-    	 -o-box-sizing: border-box;
-        	box-sizing: border-box;
-}
-
-#wrapper.nav-fixed #navigation {
-	background: white;
-	height: 63px;
-	padding: 23px 12px 0 12px;
-	
-	-webkit-box-sizing: border-box;
-   	   -moz-box-sizing: border-box;
-    	-ms-box-sizing: border-box;
-    	 -o-box-sizing: border-box;
-        	box-sizing: border-box;
-}
-
 #container {
 	background: #f1f1f1;
-	padding: 30px 20px 0 20px;
+	padding: 30px 20px 180px 20px;
+	margin: 0 12px;
+}
+
+#container .container {
+	width: 80%;
+	margin: 0 auto;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+.top-info {
+	background: white;
+	padding: 25px 40px;
+	margin-bottom: 15px !important;
+}
+.top-info {
+	font-family: "Gotham Book", sans-serif;
+	font-size: 15px;
+	line-height: 23px;
+	color: #6e6e6e;
+}
+.top-info .the-show {
+	font-family: "Gotham", sans-serif;
+	font-size: 31px;
+	font-weight: 500;
+	color: #c422f8;
+	margin-bottom: 10px;
+}
+.top-info .the-title {
+	font-family: "Gotham", sans-serif;
+	font-size: 32px;
+	font-weight: 300;
+	color: #404040;
+	margin-bottom: 15px;
+	line-height: 33px;
+}
+.top-info .the-read-more {
+	text-align: center;
+	padding: 15px 0 0 0;
+}
+.top-info .the-read-more a {
+	display: inline-block;
+	font-size: 13px;
+	background: url(../images/read-more.png) no-repeat center bottom;
+	padding-bottom: 22px;
+	color: #6e6e6e;
+}
+
+.the-excerpt-full {
+	opacity: 0;
+	overflow: hidden;
+	max-height: 0;
+	display: none;
+	
+	-webkit-transition: max-height 1500ms ease-out;
+	   -moz-transition: max-height 1500ms ease-out;
+		-ms-transition: max-height 1500ms ease-out;
+		 -o-transition: max-height 1500ms ease-out;
+		 	transition: max-height 1500ms ease-out;
+}
+.the-excerpt-full.show {
+	max-height: 1000px;
+	opacity: 1;
+}
+
+.nav-panel {
+	height: 40px;	
+}
+.nav-panel .selector {
+	height: 40px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+.nav-panel .selector .panel {
+	background: #f1f1f1;
+	height: 40px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+.nav-panel .selector .menu {
+	height: 40px;
+	line-height: 40px;
+	list-style: none;
+	position: relative;
+}
+.nav-panel .selector .menu li.quick {
+	float: right;
+	height: 40px;
+	padding: 0 8px 0 12px;
+	margin-left: 10px;
+	
+	-webkit-transition: background 300ms ease-out;
+	   -moz-transition: background 300ms ease-out;
+		-ms-transition: background 300ms ease-out;
+		 -o-transition: background 300ms ease-out;
+		 	transition: background 300ms ease-out;
+}
+.nav-panel .selector .menu li.quick a {
+	display: inline-block;
+	height: 40px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #c422f8;
+	padding-right: 24px;
+	background: url(../images/dropdown.png) no-repeat right 17px;
+	
+	-webkit-transition: background 300ms ease-out;
+	   -moz-transition: background 300ms ease-out;
+		-ms-transition: background 300ms ease-out;
+		 -o-transition: background 300ms ease-out;
+		 	transition: background 300ms ease-out;
+}
+.nav-panel .selector .menu li.quick.active {
+	background-color: white;
+}
+.nav-panel .selector .menu li.quick.active a {
+	background-image: url(../images/dropdown-active.png);
+}
+.nav-panel.fixed .selector {
+	position: fixed;
+	top: 72px; left: 0;
+	width: 100%;
+	z-index: 1001;
+	padding: 0 21px;
+}
+.nav-panel.fixed .selector .panel {
+	padding: 0 20px;
+	
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.09);
+	   -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.09);
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.09);
+}
+.nav-panel.fixed .selector .menu {
+	width: 80%;
+	margin: 0 auto;
+}
+.nav-panel .selector .menu .drop {
+	width: 100%;
+	position: absolute;
+	background: white;
+	top: 40px; left: 0;
+	z-index: 1000;
+	padding: 22px 20px;
+	visibility: hidden;
+	opacity: 0;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+			
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
+	   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.09);
+			
+	-webkit-transition: opacity 300ms ease-out, visibility 300ms ease-out;
+	   -moz-transition: opacity 300ms ease-out, visibility 300ms ease-out;
+		-ms-transition: opacity 300ms ease-out, visibility 300ms ease-out;
+		 -o-transition: opacity 300ms ease-out, visibility 300ms ease-out;
+		 	transition: opacity 300ms ease-out, visibility 300ms ease-out;
+}
+.nav-panel .selector .menu .drop.show {
+	visibility: visible;
+	opacity: 1;	
+}
+.nav-panel .selector .menu .drop ul {
+	float: left;
+	width: 25%;
+	padding: 0 10px 0 0;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+.nav-panel .selector .menu .drop ul li {
+	display: block;
+	
+	font-weight: 500;
+	font-size: 12px;
+	margin-bottom: 8px;
+	line-height: normal;
+}
+.nav-panel .selector .menu .drop ul li a {
+	color: #000 !important;
 }
 
 #slider {
@@ -262,7 +476,7 @@ img { border:none; }
 }
 .stickem.fixed {
     position: fixed;
-    top: 30px;
+    top: 142px;
 }
 .stickem.bottom {
     bottom: 0;
@@ -270,14 +484,13 @@ img { border:none; }
 }
 
 #videos {
-	max-width: 920px;
-	margin: 0 auto;
-	padding-top: 30px;
+
 }
 #videos .video {
 	overflow: hidden;
 	border-bottom: 1px solid #cfcfcf;
 	display: table;
+	width: 100%;
 }
 #videos .aside,
 #videos .content {
@@ -436,7 +649,9 @@ img { border:none; }
 
 #footer {
 	height: 180px;
-	position: relative;
+	width: 100%;  
+	position: absolute;  
+	bottom: 0;
 }
 #footer-nav {
 	font-family: "Gotham Book", sans-serif;
