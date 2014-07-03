@@ -1,0 +1,645 @@
+/*
+Theme Name: MDL
+Theme URI: http://mydesignlife.com/
+Description: The theme for My Design Life website
+Author: <a href="http://4real.io">4real.io</a> for MDL
+Version: 1.0
+*/
+/* ERIC MEYER RESET
+------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* PAUL IRISH BOX SIZING
+------------------------------------------------------------*/
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+ * Swiper - Mobile Touch Slider CSS
+ * http://www.idangero.us/sliders/swiper
+ *
+ * Vladimir Kharlampidi, The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Copyright 2012-2013, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us
+ *
+ * Licensed under GPL & MIT
+ *
+*/
+/* ===============================================================
+Basic Swiper Styles
+================================================================*/
+.swiper-container, .swiper-gallery-container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Fix of Webkit flickering */
+  z-index: 1;
+}
+
+.swiper-wrapper, .swiper-gallery-wrapper {
+  position: relative;
+  width: 100%;
+  -webkit-transition-property: -webkit-transform, left, top;
+  -webkit-transition-duration: 0s;
+  -webkit-transform: translate3d(0px, 0, 0);
+  -webkit-transition-timing-function: ease;
+  -moz-transition-property: -moz-transform, left, top;
+  -moz-transition-duration: 0s;
+  -moz-transform: translate3d(0px, 0, 0);
+  -moz-transition-timing-function: ease;
+  -o-transition-property: -o-transform, left, top;
+  -o-transition-duration: 0s;
+  -o-transform: translate3d(0px, 0, 0);
+  -o-transition-timing-function: ease;
+  -o-transform: translate(0px, 0px);
+  -ms-transition-property: -ms-transform, left, top;
+  -ms-transition-duration: 0s;
+  -ms-transform: translate3d(0px, 0, 0);
+  -ms-transition-timing-function: ease;
+  transition-property: transform, left, top;
+  transition-duration: 0s;
+  transform: translate3d(0px, 0, 0);
+  transition-timing-function: ease;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.swiper-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  float: left;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+  -ms-touch-action: pan-y;
+}
+
+.swiper-wp8-vertical {
+  -ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+  /* Specify Swiper's Size: */
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-gallery-container {
+  /* Specify Swiper's Size: */
+  width: 75%;
+  height: auto;
+  /* bug? */
+}
+
+.swiper-slide {
+  /* Specify Slides's Size: */
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide-active {
+  /* Specific active slide styling: */
+}
+
+.swiper-slide-visible {
+  /* Specific visible slide styling: */
+}
+
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+  /* Stylize pagination button: */
+}
+
+.swiper-active-switch {
+  /* Specific active button style: */
+}
+
+.swiper-visible-switch {
+  /* Specific visible button style: */
+}
+
+/* ISOTOPE ANIMATION
+------------------------------------------------------------*/
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -ms-transition-property: -ms-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+/* TYPOGRAPHY
+------------------------------------------------------------*/
+@font-face {
+  font-family: 'Social';
+  src: url("../../fonts/Socialico.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("../../fonts/Gotham Book.otf") format("truetype");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham";
+  text-align: center;
+  line-height: 1.2em;
+}
+
+.social {
+  font-family: Social;
+  font-size: 50px;
+  letter-spacing: 16px;
+  color: #333 !important;
+}
+.social:hover {
+  color: white !important;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+}
+a:link, a:active, a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
+
+/* MAIN
+------------------------------------------------------------*/
+html, body {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+#wrapper {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-size: 1.4em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+}
+
+/* KEYFRAMES
+------------------------------------------------------------*/
+@-moz-keyframes splash-fade {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes splash-fade {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes splash-fade {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes splash-fade {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes splash-fade {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes prolonged-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes prolonged-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes prolonged-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes prolonged-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes prolonged-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.search {
+  width: 0%;
+  opacity: 0;
+  margin-right: 0;
+  position: absolute;
+  z-index: 2;
+  top: 40px;
+  right: left;
+  background: white;
+  overflow: visible;
+  height: 30px;
+  -webkit-box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out, opacity 0.1s ease-in-out;
+  font-family: "Akzidenz";
+  color: #abacae;
+}
+.search p {
+  font-family: "Akzidenz";
+  color: #abacae;
+  font-size: 14px;
+}
+
+.search.focus {
+  /*  border:3px solid #000; */
+  opacity: 1;
+  width: 100%;
+  -webkit-transition: all 300ms ease-in-out, opacity 0.2s ease-in-out;
+  -moz-transition: all 300ms ease-in-out, opacity 0.2s ease-in-out;
+  -o-transition: all 300ms ease-in-out, opacity 0.2s ease-in-out;
+  transition: all 300ms ease-in-out, opacity 0.2s ease-in-out;
+}
+.search.focus .search-box {
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition: all 0.5s 0.1s;
+  -o-transition: all 0.5s 0.1s;
+  transition: all 0.5s 0.1s;
+}
+
+.search.find .search-pt {
+  display: none;
+}
+
+.search input {
+  outline: none;
+  padding-left: 54px;
+  width: 100%;
+  display: block;
+  height: 30px;
+  background: #fff;
+  border: none;
+  line-height: 18px;
+  font-size: 16px;
+  font-family: "Akzidenz";
+  font-size: 14px;
+}
+
+.search:focus input {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -background: #F6F6F6;
+}
+
+.search.loading .searchloader {
+  display: block;
+}
+
+.search input.loading {
+  /*    background:white url(images/loader.gif) no-repeat center center;  */
+}
+
+.search input::-webkit-input-placeholder {
+  color: #28262d;
+}
+
+.search input:-moz-placeholder {
+  color: #28262d;
+}
+
+.search input::-moz-placeholder {
+  color: #28262d;
+}
+
+.search input:-ms-input-placeholder {
+  color: #28262d;
+}
+
+.search input:focus::-webkit-input-placeholder {
+  color: #9A9A9A;
+}
+
+.search input:focus:-moz-placeholder {
+  color: #9A9A9A;
+}
+
+.search input:focus::-moz-placeholder {
+  color: #9A9A9A;
+}
+
+.search input:focus:-ms-input-placeholder {
+  color: #9A9A9A;
+}
+
+.search .search-box {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  border: 1px solid #E4E4E4;
+  background: white;
+  /*  border-top:0; */
+  line-height: normal;
+  opacity: 0;
+  z-index: 5;
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.search .search-pt {
+  font-size: 16px;
+  padding: 5px 54px;
+  font-family: "BemboItalic", "Times New Roman";
+  text-transform: lowercase;
+}
+
+.search .search-ul {
+  list-style: none;
+  padding: 0px 0 0 0;
+  width: 100%;
+}
+
+.search .search-box.fixed {
+  position: fixed;
+  top: 60px !important;
+}
+
+.search .search-ul li {
+  width: 100%;
+  float: none;
+  margin: 0;
+  line-height: normal;
+  height: auto;
+  padding: 5px 54px;
+  font-size: 13px;
+  border-bottom: 1px solid #E4E4E4;
+}
+
+.search .search-ul li:hover {
+  background: #F4F4F4;
+}
+
+.search .search-ul li a {
+  width: 100%;
+  display: block;
+  color: #abacae;
+}
+
+.search .search-ul li span {
+  font-family: "BemboItalic", "Times New Roman";
+  text-transform: lowercase;
+  /*  line-height: 24px; */
+  width: 100px;
+  font-size: 16px;
+  display: inline-block;
+  color: #abacae;
+  /*  font-family: 'Helvetica Neue', sans-serif; */
+}
+
+.search .search-ul li p {
+  overflow: hidden;
+  margin-left: 100px;
+  display: inline;
+}
+
+/* @MEDIA
+------------------------------------------------------------*/
+#page-title.news-head {
+  display: none;
+}
+
+.mobile {
+  display: none;
+}

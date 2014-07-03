@@ -2,7 +2,7 @@
 	
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
-	query_posts( array( 'post_type' => 'designer', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
+	query_posts( array( 'post_type' => 'books', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
 
 ?>
     		<div id="about" class="container">

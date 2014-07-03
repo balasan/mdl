@@ -3,8 +3,8 @@
 // update_option('siteurl','http://192.168.1.3/wordpress');
 // update_option('home','http://192.168.1.3/wordpress');
 
-// update_option('upload_url_path', 'http://kehindewiley.com/wp/wp-content/uploads');
-update_option('upload_url_path', 'http://localhost:8888/mdl/wp-content/uploads');
+//update_option('upload_url_path', 'http://kehindewiley.com/wp/wp-content/uploads');
+//update_option('upload_url_path', 'http://localhost/mdl_wp/wp-content/uploads');
 
 
 add_filter( 'show_admin_bar', '__return_false' );
@@ -32,11 +32,26 @@ add_action('admin_init', 'flush_rewrite_rules');
 //Post Type
 add_action( 'init', 'create_post_type' );
 
-
-
+function new_excerpt_more($more) {
+	return ' ...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 function create_post_type() {
-
+	
+	register_post_type( 'Slider',
+		array(
+			'labels' => array(
+				'name' => __( 'Slider' ),
+				'singular_name' => __( 'Slider' )
+			),
+			'public' => true,
+			'publically_queryable' => true,
+			'has_archive' => false,
+			'supports' => array('title', 'thumbnail')
+		)
+	);
+	
 	register_post_type( 'Books',
 		array(
 			'labels' => array(
@@ -45,11 +60,9 @@ function create_post_type() {
 			),
 			'public' => true,
 			'publically_queryable' => true,
-
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'slideshows', 'with_front' => false),
-			'supports' => array('title','editor','thumbnail', 'revisions'),
-			'taxonomies' => array('category')
+			'rewrite' => array('slug' => 'books', 'with_front' => false),
+			'supports' => array('title', 'editor', 'thumbnail')
 		)
 	);
 
@@ -57,7 +70,7 @@ function create_post_type() {
 		array(
 			'labels' => array(
 				'name' => __( 'Objects' ),
-				'singular_name' => __( 'Object' )
+				'singular_name' => __( 'Objects' )
 			),
 			'public' => true,
 			'publically_queryable' => true,
@@ -67,63 +80,46 @@ function create_post_type() {
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
-			'taxonomies' => array('category','post_tag')
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
+			'taxonomies' => array('category')
 		)
 	);
 
-  //  register_taxonomy(
-  //     'object_categories',
-  //     'objects',
-  //     array(
-  //         'labels' => array(
-  //             'name' => 'Object Categories',
-  //             'add_new_item' => 'Add New Object Category',
-  //             'new_item_name' => "New Object Category"
-  //         ),
-  //         'rewrite'			=> array(
-		// 		'slug' 			=> 'object-cat', // This controls the base slug that will display before each term
-		// 		'with_front' 	=> false // Don't display the category base before
-		// 		),
-  //         'show_ui' => true,
-  //         'show_tagcloud' => false,
-  //         'hierarchical' => true,
-  //         'hasArchive' => true
-  //     )
-  // );
+   register_taxonomy(
+      'object_categories',
+      'objects',
+      array(
+          'labels' => array(
+              'name' => 'Object Categories',
+              'add_new_item' => 'Add New Object Category',
+              'new_item_name' => "New Object Category"
+          ),
+          'rewrite'			=> array(
+				'slug' 			=> 'object-cat', // This controls the base slug that will display before each term
+				'with_front' 	=> false // Don't display the category base before
+				),
+          'show_ui' => true,
+          'show_tagcloud' => false,
+          'hierarchical' => true,
+          'hasArchive' => true
+      )
+  );
 
 
 	register_post_type( 'Designer',
 		array(
 			'labels' => array(
-				'name' => __( 'Designers' ),
+				'name' => __( 'Designer' ),
 				'singular_name' => __( 'Designer' )
 			),
 			'public' => true,
 			'publically_queryable' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'projects', 'with_front' => false),
+			'rewrite' => array('slug' => 'designer', 'with_front' => false),
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
-			'taxonomies' => array('category','post_tag')
-		)
-	);
-
-	register_post_type( 'Manufacturer',
-		array(
-			'labels' => array(
-				'name' => __( 'Manufacturers' ),
-				'singular_name' => __( 'Manufacturer' )
-			),
-			'public' => true,
-			'publically_queryable' => true,
-			'has_archive' => true,
-			'rewrite' => array('slug' => 'projects', 'with_front' => false),
-			'hierarchical' => true,
-			// page-attributes enables parent/child for posts
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
-			'taxonomies' => array('category','post_tag')
+			'supports' => array('page-attributes', 'title', 'editor', 'thumbnail', 'revisions'),
+			'taxonomies' => array('category')
 		)
 	);
 
@@ -143,9 +139,7 @@ function create_post_type() {
 			// 'taxonomies' => array('category')
 		)
 	);
-
-
-
+	
 	register_post_type( 'tv',
 		array(
 			'labels' => array(
@@ -155,11 +149,28 @@ function create_post_type() {
 			'public' => true,
 			'publically_queryable' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'products', 'with_front' => false),
+			'rewrite' => array(
+				'slug' => 'tv',
+				'with_front' => false
+			),
 			'hierarchical' => true,
-			// page-attributes enables parent/child for posts
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
-			'taxonomies' => array('category')
+			'supports' => array('title', 'editor'),
+		)
+	);
+	
+	register_taxonomy(
+		'tv_categories',
+		'tv', array(
+				'labels' => array(
+				'name' => 'TV Episodes Categories',
+            	'add_new_item' => 'Add New TV Episode Category',
+            	'new_item_name' => "New TV Episode Category"
+			),
+        	'rewrite' => array( 'slug' => 'tv-cat', 'with_front' => false ),
+        	'show_ui' => true,
+        	'show_tagcloud' => false,
+        	'hierarchical' => true,
+        	'hasArchive' => true
 		)
 	);
 }
@@ -187,23 +198,27 @@ function myEndSession() {
 
 // firefox sessions fix
 
+function is_ajax() {
+	return !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] );	
+}
+
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 
 
-// add scripts
-
-function theme_script()
+function theme_script_and_style()
 {
 	wp_deregister_script('jquery');
 	wp_register_script ('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js');
-	/*wp_register_script ('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js');*/
- 	/*wp_register_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.8.1.min.js');*/
-	wp_register_script( 'app', get_template_directory_uri() . '/js/app.js');
+	
+	wp_register_style( 'swiper', get_template_directory_uri() . '/css/idangerous.swiper.css');	
+	wp_register_script( 'swiper', get_template_directory_uri() . '/js/swiper/idangerous.swiper-2.4.2.js');
+	
 	wp_enqueue_script('jquery');
-	wp_enqueue_script('app');
+	wp_enqueue_script('swiper');
+	wp_enqueue_style('swiper');
 }
 
-add_action('wp_enqueue_scripts','theme_script');
+add_action('init', 'theme_script_and_style');
 
 	add_action('wp_ajax_search', 'ajax_search_request');
 	add_action('wp_ajax_nopriv_search', 'ajax_search_request');
