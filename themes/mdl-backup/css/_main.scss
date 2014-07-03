@@ -1,0 +1,52 @@
+
+/* MAIN
+------------------------------------------------------------*/
+html, body{
+  font-size: 62.5%;
+  height:100%;
+}
+#wrapper { 
+  position: relative; 
+  height: 100%;
+}
+
+body {
+  font-size:1.4em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust:none;
+
+}
+
+
+/* MEDIA QUERIES
+------------------------------------------------------------*/
+
+//tablets
+@media screen and (max-width: 900px) {
+
+}
+
+
+//phones
+@media screen and (max-width: 540px) {
+
+}
+
+
+
+/* KEYFRAMES
+------------------------------------------------------------*/
+
+@include keyframes(splash-fade) {
+  0%    { opacity: 0; }
+  75%   { opacity: 1; }
+  100%  { opacity: 0; }
+}
+
+@include keyframes(prolonged-fade-in) {
+  0%    { opacity: 0; }
+  75%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+

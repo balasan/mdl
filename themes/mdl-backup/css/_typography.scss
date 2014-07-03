@@ -1,0 +1,51 @@
+/* TYPOGRAPHY
+------------------------------------------------------------*/
+
+
+@font-face {
+  font-family: 'Social';
+  src: url("../../fonts/Socialico.otf") format("opentype");
+}
+
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("../../fonts/Gotham Book.otf") format("truetype");
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham";
+  text-align: center;
+  line-height: 1.2em;
+}
+
+
+.social {
+  font-family: Social;
+  font-size:50px;
+  letter-spacing:16px;
+  color: #333 !important;
+  &:hover {
+    color:white !important;
+  }
+}
+
+
+
+a {
+  color: black;
+  cursor: pointer;
+  &:link, &:active, &:visited {
+    color: black;
+    text-decoration: none;
+  }
+  &:hover { color: black; }
+}
+
+
+@media screen and (max-width: 700px) {
+
+
+
+}
