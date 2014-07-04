@@ -375,7 +375,7 @@ function onYouTubePlayerAPIReady() {
 										// $YTPlayer.unmuteYTPVolume();
 									}
 
-									var startAt = YTPlayer.opt.startAt ? YTPlayer.opt.startAt : 1;
+									var startAt = YTPlayer.opt.startAt ? YTPlayer.opt.startAt : .1;
 
 									//if(jQuery.browser.webkit)
 									//YTPlayer.player.loadVideoById(YTPlayer.videoID.toString(), startAt, YTPlayer.opt.quality);
@@ -396,8 +396,8 @@ function onYouTubePlayerAPIReady() {
 
 											$YTPlayer.pauseYTP()
 											setTimeout(function () {
-												$YTPlayer.css("background-image", "none");
-												YTPlayer.wrapper.CSSAnimate({opacity: YTPlayer.isAlone ? 1 : YTPlayer.opt.opacity}, 2000);
+												// $YTPlayer.css("background-image", "none");
+												// YTPlayer.wrapper.CSSAnimate({opacity: YTPlayer.isAlone ? 1 : YTPlayer.opt.opacity}, 2000);
 
 												if (YTPlayer.opt.autoPlay)
 													$YTPlayer.playYTP();
