@@ -2,7 +2,7 @@
 	
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
-	query_posts( array( 'post_type' => 'designer', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
+	query_posts( array( 'post_type' => 'books', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
 
 ?>
     		<div id="about" class="container">
@@ -11,8 +11,8 @@
                 
                 <?php
                 	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $src = $thumb['0'];
-					        $collaborations = get_post_meta( $post->ID, 'collaborations', true );
-					        $subtitle = get_post_meta( $post->ID, 'subtitle', true );
+					$collaborations = get_post_meta( $post->ID, 'collaborations', true );
+					$subtitle = get_post_meta( $post->ID, 'subtitle', true );
 				?>
                 
             	<article class="post person stickem-container" id="post-<?php the_ID(); ?>">
@@ -63,11 +63,4 @@
 				});
 			</script>
 
-
-<!-- <div id="content" class="about" data-info='{"type":"single","name":"about","menuTitle":"About"}'> -->
-
-
-
-
-<?php get_footer(); ?>
 <?php if( !is_ajax() ) get_footer(); ?>
