@@ -42,8 +42,6 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/ytplayer/inc/jquery.mb.YTPlayer.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.infinitescroll.js?ver=2.6.1' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.isotope.min.js' ?>"></script>
-
-
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.scripts.js' ?>"></script>
 
 </head>
@@ -77,10 +75,10 @@
                 <ul class="menu">
                 	<?php //wp_nav_menu( $menu_args ); ?>
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>">HOME</a></li>
-                	<li><a href="<?php echo esc_url( home_url( '/' ) )?>books/" class="books">BOOKS</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>objects/" class="aotf">ANTIQUES OF THE FUTURE</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>about/" class="about">ABOUT</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>tv/" class="tv">TV</a></li>
+                	<li><a href="<?php echo esc_url( home_url( '/' ) )?>books/" class="books <?php if( is_post_type_archive('books') ) echo 'active'; ?>">BOOKS</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>works/" class="aotf <?php if( is_post_type_archive('objects') ) echo 'active'; ?>">ANTIQUES OF THE FUTURE</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>about/" class="about <?php if( is_page('about') ) echo 'active'; ?>">ABOUT</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>tv/" class="tv <?php if( is_post_type_archive('tv') ) echo 'active'; ?>">TV</a></li>
                 </ul>
                 <ul class="nav-btn"><li></li><li></li><li></li></ul>
             </nav>

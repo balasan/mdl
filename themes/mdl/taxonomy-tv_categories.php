@@ -29,7 +29,7 @@
                 	<div class="panel">
                         <ul class="menu">
                             <li class="quick">
-                            	<a href="#" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">Episodes</a>
+                            	<a href="#" class="external" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">Episodes</a>
                             </li>
                             
                             <div class="drop">
@@ -96,14 +96,8 @@
 					$(".ytPlayer").mb_YTPlayer();
 				});
 				$('#videos').infinitescroll({
-					navSelector  : "div.navigation",
-					nextSelector : "div.navigation a:first",
-					itemSelector : "#videos .post",
-					loading		 : {
-						msgText 	: "<em>Loading...</em>",
-						finishedMsg	: "<em>No additional posts.</em>",
-						img			: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif"
-					}
+					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
+      				bufferPx: Math.round( $(window).height() * 0.9 )
 				}, function( appended ) { $(appended).find('.ytPlayer').mb_YTPlayer(); });
 			</script>
 

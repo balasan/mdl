@@ -1,3 +1,85 @@
+function initPage() {
+	
+	var offset = 72;
+	
+	if( $('#about').length ) {
+		$('#about .person').sticky({ offset: offset });
+	}
+	
+	if( $('#videos').length ) {
+		offset = 72 + 40;
+		$('#videos .video').sticky({ offset: offset });
+	}
+	
+	if( $('.nav-panel').length )
+	{
+		var $navPanel = $('.nav-panel');
+		
+		$(window).bind("resize scroll", function() {
+			if( $(window).scrollTop() + 72 > $navPanel.offset().top )
+				$navPanel.addClass('fixed');
+			else $navPanel.removeClass('fixed');
+		});
+		
+		$('.nav-panel .drop a').click(function() {
+			$('.quick').toggleClass('active');
+			$('.drop').toggleClass('show');
+		});
+	}
+	
+	var $container = $('#grid');
+	
+	if( $container.length ) {
+		$container.isotope({
+			itemSelector: '.item',
+			layoutMode: 'masonry',
+			masonry: {
+				gutter: ".gutter-sizer"
+			}
+		});
+		
+		$container.imagesLoaded(function() {		
+			$container.isotope({
+				itemSelector: '.item',
+				layoutMode: 'masonry',
+				masonry: {
+					gutter: ".gutter-sizer"
+				}
+			}).find('.post').removeClass('hide');
+			
+			$container.find('.item').each(function() {
+				$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+			});
+		});
+	}
+	
+	$swiperContainer = $('.swiper-container');
+	
+	if( $swiperContainer.length )
+	{		
+		var mySwiper = $swiperContainer.swiper({
+			mode: 'horizontal',
+			loop: true
+		});
+		$('.arrow-left').on('click', function(e){
+			e.preventDefault();
+			mySwiper.swipePrev();
+		});
+		$('.arrow-right').on('click', function(e){
+			e.preventDefault();
+			mySwiper.swipeNext();
+		});
+		
+		var _resize = function() {
+			var height = $('#slider').width() / 2 + 80;
+			$('#slider').height( height ).find('.swiper-slide').height( height );
+		};
+					
+		$(window).resize(_resize); _resize();
+	}
+	
+};
+
 function showPage(el)
 {
 	$('.page-excerpt').slideUp('fast', function() {
@@ -9,28 +91,52 @@ function showPage(el)
 	return false;
 };
 
-$(window).load(function() {
-	var $container = $('#grid');
-	
-	$container.isotope({
-		itemSelector: '.item',
-		layoutMode: 'masonry',
-		masonry: {
-			gutter: ".gutter-sizer"
-		}
-	}).find('.post').removeClass('hide');
-	
-	/*$container.find('.item').each(function() {
-		$(this).find('.display').css( 'top', ($container.find('.item').innerHeight() - $(this).find('.display').innerHeight()) / 2 );
-    });*/
-});
-
 $(function() {
 	
-	$('#about .person').sticky({
-		offset: 72
+	var baseurl = $('body').attr('data-base');
+	
+	Router.init({
+		home: baseurl,
+		before: function(url) {
+			//$("#container").hide();
+			$('.loading').addClass('active');
+			$('input').blur();
+		},
+		after: function($response) {
+
+			//var pageInfo = $response.find('#content').data('info');
+			
+			//if (!pageInfo)
+			//	pageInfo = {};
+
+
+			//var header = $response.find('header').html();
+			var content = $response.find('#container').html();
+			var menu = $response.find('#navigation .menu').html();
+			//var footer = $response.find('#footer').html();
+
+			targetTitle = $response.filter('title').text();
+
+			//implement saving scroll to router's History State
+
+			$("#container").stop(true).hide().empty()
+				.each(function() {
+					$("#container").hide();
+					$("#container").html(content);
+					$("#navigation .menu").html(menu);
+					//$('#footer').remove();
+					//$("#wrapper").append(footer);
+				}).fadeIn('slow');
+
+			initPage();
+
+			$('.loading').removeClass('active');
+
+			document.title = targetTitle;
+		}
 	});
-	/*$('#videos .video').stickem();*/
+	
+	initPage();
 	
 	var $logo = $('.logo');
 	
@@ -39,80 +145,12 @@ $(function() {
 			$logo.addClass('scroll');
 		else $logo.removeClass('scroll');
 	});
-	
-	var $container = $('#grid');
-
-	$container.isotope({
-		itemSelector: '.item',
-		layoutMode: 'masonry',
-		masonry: {
-			gutter: ".gutter-sizer"
-		}
-	});
-	
-	$('.nav-panel .drop a').click(function() {
-		$('.quick').toggleClass('active');
-		$('.drop').toggleClass('show');
 		
-		/*$container.isotope({ filter: function() {
-			var number = $(this).text();			
-			
-			return number.match( /(6|3|5)/ig );
-		} });*/
-		
-		//return false;
-	});
-	
-	if( $('.nav-panel').length )
-	{
-		var $navPanel = $('.nav-panel');
-		
-		$(window).bind("resize scroll", function() {
-			if( $(window).scrollTop() + 72 > $navPanel.offset().top )
-				$navPanel.addClass('fixed');
-			else $navPanel.removeClass('fixed');
-		});
-	}
-	
-	$('#videos .video').sticky({
-		offset: 72 + 40
-	});
-	//$('#books .books').sticky();	
-				
 });
 
 
 (function($) {
-
-	$.fn.crop = function(parentWidth, parentHeight)
-			{
-				return this.each(function()
-				{
-					var width  = $(this).width();
-					var height = $(this).height();
-					
-					console.log(parentHeight);
-			
-					if(width / parentWidth < height / parentHeight)
-					{
-						newWidth  = parentWidth;
-						newHeight = parseInt( newWidth / width * height );
-					}
-					else
-					{
-						newHeight = parentHeight;
-						newWidth  = parseInt( newHeight / height * width );
-					}
-					margin_top  = (parentHeight - newHeight) / 2;
-					margin_left = (parentWidth  - newWidth ) / 2;
-					
-					$(this).css({'margin-top' :margin_top  + 'px',
-								 'margin-left':margin_left + 'px',
-								 'height'     :newHeight   + 'px',
-								 'width'      :newWidth    + 'px'});
-				});
-			};
-			
+	
 	$.fn.sticky = function(options) {
 		
 		options = $.extend({
@@ -131,9 +169,6 @@ $(function() {
 			};
 			
 			var _scroll = function() {
-
-				if($(window).scrollTop() + $(window).height() > $('body').height())
-					return;
 				
 				if( $(window).width() <= 640 )
 				{
@@ -145,18 +180,19 @@ $(function() {
 				if( $container.innerHeight() - 30 == $sticky.innerHeight() )
 				{
 					$sticky.removeClass('fixed').removeClass('bottom');
+					
 					return;
 				}
  
 				var windowTop = $(window).scrollTop();
 				
-				_bottom = $container.offset().top - options.offset + $container.innerHeight() - $sticky.innerHeight() - 30
-
-				if( $container.offset().top - options.offset <= windowTop && _bottom >= windowTop)
+				_bottom = $container.offset().top - options.offset + $container.innerHeight() - $sticky.innerHeight() - 30;
+			 
+				if( $container.offset().top - options.offset <= windowTop && _bottom >= windowTop )
 				{
-					$sticky.addClass('fixed').removeClass('bottom');
+					$sticky.removeClass('bottom').addClass('fixed');
 				}
-				else if( $container.offset().top - options.offset <= windowTop && _bottom <= windowTop)
+				else if( $container.offset().top - options.offset <= windowTop && _bottom <= windowTop )
 				{
 					$sticky.removeClass('fixed').addClass('bottom');
 				}
