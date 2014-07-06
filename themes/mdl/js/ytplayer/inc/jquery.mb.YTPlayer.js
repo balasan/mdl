@@ -380,7 +380,7 @@ function onYouTubePlayerAPIReady() {
 									//if(jQuery.browser.webkit)
 									//YTPlayer.player.loadVideoById(YTPlayer.videoID.toString(), startAt, YTPlayer.opt.quality);
 
-//									YTPlayer.player.setVolume(0);
+									YTPlayer.player.setVolume(0);
 									YTPlayer.player.stopVideo();
 									jQuery.mbYTPlayer.checkForState(YTPlayer);
 									YTPlayer.checkForStartAt = setInterval(function () {
@@ -403,7 +403,7 @@ function onYouTubePlayerAPIReady() {
 													$YTPlayer.playYTP();
 												else {
 													$YTPlayer.pauseYTP();
-//													YTPlayer.player.setVolume(YTPlayer.opt.vol);
+													YTPlayer.player.setVolume(YTPlayer.opt.vol);
 												}
 
 											}, 100);

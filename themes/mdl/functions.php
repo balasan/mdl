@@ -79,7 +79,7 @@ function create_post_type() {
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions', 'custom-fields'),
 			'taxonomies' => array('category','post_tag')
 		)
 	);
