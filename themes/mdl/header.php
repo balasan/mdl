@@ -37,6 +37,8 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/history.adapter.jquery.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/router.js' ?>"></script>
 
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.sticky-kit.min.js' ?>"></script>
+
 <script type="text/javascript" src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
 
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/ytplayer/inc/jquery.mb.YTPlayer.js' ?>"></script>
@@ -46,26 +48,6 @@
 
 </head>
 
-<?php
-	$menu_args = array(
-	  'theme_location'  => '',
-	  'menu'            => '', 
-	  'container'       => false, 
-	  'container_class' => '', 
-	  'container_id'    => '',
-	  'menu_class'      => 'menu', 
-	  'menu_id'         => '',
-	  'echo'            => true,
-	  'fallback_cb'     => 'wp_page_menu',
-	  'before'          => '',
-	  'after'           => '',
-	  'link_before'     => '',
-	  'link_after'      => '',
-	  'items_wrap'      => '<ul id=\"%1$s\" class=\"%2$s\">%3$s</ul>',
-	  'depth'           => 0
-	);
-?>
-
 <body <?php body_class(); ?> data-base="<?php echo esc_url( home_url( '/' ) )?>">
 	
     <div id="wrapper">
@@ -73,7 +55,6 @@
             <nav id="navigation">
             	<div class="logo">My Design Life</div>
                 <ul class="menu">
-                	<?php //wp_nav_menu( $menu_args ); ?>
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>">HOME</a></li>
                 	<li><a href="<?php echo esc_url( home_url( '/' ) )?>books/" class="books <?php if( is_post_type_archive('books') ) echo 'active'; ?>">BOOKS</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>objects/" class="aotf <?php if( is_post_type_archive('objects') ) echo 'active'; ?>">ANTIQUES OF THE FUTURE</a></li>
@@ -85,3 +66,4 @@
         </header>
         
         <div id="container">
+	

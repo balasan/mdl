@@ -19,7 +19,7 @@
                 <div class="page-excerpt"><?php the_excerpt(); ?></div>
                 <div class="page-excerpt-full"><?php the_content(); ?></div>
                 <div class="page-read-more">
-                	<a href="#" onclick="return showPage(this);">Read More</a>
+                	<a href="#" class="external" onclick="return showPage(this);">Read More</a>
                 </div>
             </div>
             <?php endwhile; ?>

@@ -1,5 +1,7 @@
 function initPage() {
 	
+	$('html, body').scrollTop(0);
+	
 	var offset = 72;
 	
 	if( $('#about').length ) {
@@ -38,7 +40,7 @@ function initPage() {
 			}
 		});
 		
-		$container.imagesLoaded(function() {		
+		$container.imagesLoaded(function() {
 			$container.isotope({
 				itemSelector: '.item',
 				layoutMode: 'masonry',
@@ -50,6 +52,14 @@ function initPage() {
 			$container.find('.item').each(function() {
 				$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
 			});
+			
+			$(window).resize(function(e) {
+				$container.imagesLoaded(function() {
+					$container.find('.item').each(function() {
+						$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+					});
+				});
+            });
 		});
 	}
 	
@@ -118,9 +128,16 @@ $(function() {
 			targetTitle = $response.filter('title').text();
 
 			//implement saving scroll to router's History State
+			
+			if( $('#grid').length )
+				$('#grid').infinitescroll('destroy');
+				
+			if( $('#about').length )
+				$('#about').infinitescroll('destroy');
 
 			$("#container").stop(true).hide().empty()
 				.each(function() {
+					
 					$("#container").hide();
 					$("#container").html(content);
 					$("#navigation .menu").html(menu);

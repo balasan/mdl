@@ -77,7 +77,7 @@
                     	<div class="image stickem">
                         	<div class="player">
                             	<?php if ( !empty($video_url) ) : ?>
-                            	<div style="height: 282px; overflow: hidden;" class="ytPlayer" data-property="{videoURL:'<?php echo $video_url; ?>',containment:'self',autoPlay:false, mute:true, startAt:0, opacity:1, loop:false}">
+                            	<div style="height: 282px; overflow: hidden;" class="ytPlayer" data-property="{videoURL:'<?php echo $video_url; ?>',containment:'self',autoPlay:false, mute:false, startAt:0, opacity:1, loop:false}">
                                 </div>
                                 <?php endif; ?>
                             </div>
