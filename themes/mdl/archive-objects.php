@@ -98,20 +98,16 @@
             <script type="text/javascript">		
 				var $container = $('#grid');
 				
-				$container.infinitescroll({
-					navSelector  : ".navigation",
-					nextSelector : ".navigation a:first",
-					itemSelector : ".post",
+				$container.infinitescroll("destroy").infinitescroll({
 					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
-      				bufferPx: Math.round( $(window).height() * 0.9 ),
-					loading		 : {
-						msgText 	: "<em>Loading...</em>",
-						finishedMsg	: "<em>No additional posts.</em>",
-						img			: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif"
-					}
+      				bufferPx: Math.round( $(window).height() * 0.9 )
 				}, function( newElements ) {
 					$container.imagesLoaded(function() {
                          $container.isotope('appended', $(newElements).removeClass('hide'));
+						 
+						 $container.find('.item').each(function() {
+							$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+						});
                 	});
 				});
 			</script>

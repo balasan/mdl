@@ -44,18 +44,10 @@
             
             <div class="navigation"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div>
             
-            <script type="text/javascript">
-				$('#about').infinitescroll({
-					navSelector  : "div.navigation",
-					nextSelector : "div.navigation a:first",
-					itemSelector : "#about .post",
+            <script type="text/javascript">				
+				$('#about').infinitescroll("destroy").infinitescroll({
 					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
-      				bufferPx: Math.round( $(window).height() * 0.9 ),
-					loading		 : {
-						msgText 	: "<em>Loading...</em>",
-						finishedMsg	: "<em>No additional posts.</em>",
-						img			: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif"
-					}
+      				bufferPx: Math.round( $(window).height() * 0.9 )
 				}, function( appended ) {
 					
 					for( var elem in appended )

@@ -1,9 +1,10 @@
 <?php
+
 // update_option('siteurl','http://192.168.1.3/wordpress');
 // update_option('home','http://192.168.1.3/wordpress');
 
-// update_option('upload_url_path', 'http://localhost:8888/mdl/wp-content/uploads');
-// update_option('upload_url_path', 'http://localhost:8888/mdl/wp-content/uploads');
+//update_option('upload_url_path', 'http://kehindewiley.com/wp/wp-content/uploads');
+//update_option('upload_url_path', 'http://localhost/mdl_wp/wp-content/uploads');
 
 
 add_filter( 'show_admin_bar', '__return_false' );
@@ -53,6 +54,7 @@ function create_post_type() {
 	
 	register_post_type( 'Books',
 		array(
+			'label' => 'Books',
 			'labels' => array(
 				'name' => __( 'Books' ),
 				'singular_name' => __( 'Book' )
@@ -67,6 +69,7 @@ function create_post_type() {
 
 	register_post_type( 'Objects',
 		array(
+			'label' => 'Antiques of the Future',
 			'labels' => array(
 				'name' => __( 'Objects' ),
 				'singular_name' => __( 'Objects' )
@@ -74,13 +77,16 @@ function create_post_type() {
 			'public' => true,
 			'publically_queryable' => true,
 			'has_archive' => true,
-			'hierarchical' => true,
-			'rewrite' => array('slug' => 'objects', 'with_front' => false),
-			'hierarchical' => true,
+			'rewrite' => array('slug' => 'works', 'with_front' => false),
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
+<<<<<<< HEAD
 			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions', 'custom-fields'),
 			'taxonomies' => array('category','post_tag')
+=======
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
+			'taxonomies' => array('category')
+>>>>>>> 2a17ea4bb91d751d19f289ca82f4d6e553f17b31
 		)
 	);
 
@@ -104,22 +110,6 @@ function create_post_type() {
       )
   );
 
-	register_post_type( 'Manufacturer',
-		array(
-			'labels' => array(
-				'name' => __( 'Manufacturers' ),
-				'singular_name' => __( 'Manufacturer' )
-			),
-			'public' => true,
-			'publically_queryable' => true,
-			'has_archive' => true,
-			'rewrite' => array('slug' => 'projects', 'with_front' => false),
-			'hierarchical' => true,
-			// page-attributes enables parent/child for posts
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
-			'taxonomies' => array('category','post_tag')
-		)
-	);
 
 	register_post_type( 'Designer',
 		array(
@@ -134,7 +124,7 @@ function create_post_type() {
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
 			'supports' => array('page-attributes', 'title', 'editor', 'thumbnail', 'revisions'),
-			'taxonomies' => array('category','post_tag')
+			'taxonomies' => array('category')
 		)
 	);
 
@@ -213,7 +203,7 @@ function myEndSession() {
 
 // firefox sessions fix
 
-function is_ajax() {
+function is_ajax() { return false;
 	return !empty( $_SERVER['HTTP_X_REQUESTED_WITH'] );	
 }
 
@@ -257,4 +247,7 @@ add_action('init', 'theme_script_and_style');
 		
 		exit;
 	}
+
+
+
 ?>
