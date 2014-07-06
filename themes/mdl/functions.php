@@ -77,16 +77,12 @@ function create_post_type() {
 			'public' => true,
 			'publically_queryable' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'works', 'with_front' => false),
+			'rewrite' => array('slug' => 'objects', 'with_front' => false),
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
-<<<<<<< HEAD
 			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions', 'custom-fields'),
 			'taxonomies' => array('category','post_tag')
-=======
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
-			'taxonomies' => array('category')
->>>>>>> 2a17ea4bb91d751d19f289ca82f4d6e553f17b31
+
 		)
 	);
 
