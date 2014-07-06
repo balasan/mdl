@@ -1,10 +1,6 @@
-<?php if( !is_ajax() ) get_header(); ?>
+<?php get_header(); ?>
 
-		<?php
-            
-			if( !is_ajax() ) : 
-			
-			$the_query = new WP_Query( array( 'page_id' => 11241 ) );
+		<?php $the_query = new WP_Query( array( 'page_id' => 11241 ) );
             	
 			if( $the_query->have_posts() ) while ( $the_query->have_posts() ) : $the_query->the_post();
 			
@@ -21,9 +17,6 @@
             </div>
             <?php endwhile; ?>
             
-            <?php endif; ?>
-            
-			<?php if( !is_ajax() ) : ?>
             <div class="container nav-panel">
             	<div class="selector">
                 	<div class="panel">
@@ -54,7 +47,6 @@
                     </div>
                 </div>
             </div>
-            <?php endif; ?>
             
     		<div id="videos" class="container">
             	
@@ -101,4 +93,4 @@
 				}, function( appended ) { $(appended).find('.ytPlayer').mb_YTPlayer(); });
 			</script>
 
-<?php if( !is_ajax() ) get_footer(); ?>
+<?php get_footer(); ?>

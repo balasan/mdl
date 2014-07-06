@@ -227,12 +227,10 @@ function theme_script_and_style()
 	wp_deregister_script('jquery');
 	wp_register_script ('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js');
 	
-	wp_register_style( 'swiper', get_template_directory_uri() . '/css/idangerous.swiper.css');	
 	wp_register_script( 'swiper', get_template_directory_uri() . '/js/swiper/idangerous.swiper-2.4.2.js');
 	
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('swiper');
-	wp_enqueue_style('swiper');
 }
 
 add_action('init', 'theme_script_and_style');

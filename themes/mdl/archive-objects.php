@@ -1,4 +1,4 @@
-<?php if( !is_ajax() ) get_header();
+<?php get_header();
 	
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
@@ -15,13 +15,21 @@
                 </div>
             </div>-->          
 			
-            <?php if( !is_ajax() ) : ?>
             <div class="container nav-panel">
             	<div class="selector">
                 	<div class="panel">
                         <ul class="menu">
-                            <li class="quick"><a href="#" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">Episodes</a></li>
-                            <div class="drop">
+                            <li class="quick">
+                            	<a href="#" class="external" onclick="return showDrop(this, '#drop1');" style="color: #d70377;">Designer</a>
+                            </li>
+                            <li class="quick">
+                            	<a href="#" class="external" onclick="return showDrop(this, '#drop2');">Manufacturer</a>
+                            </li>
+                            <li class="quick">
+                            	<a href="#" class="external" onclick="return showDrop(this, '#drop3');" style="color: #00bcff;">Category</a>
+                            </li>
+                            
+                            <div class="drop" id="drop1">
                             	<ul>
                                 	<li><a href="#">Harry Allen</a></li>
                                     <li><a href="#">Ron Arad</a></li>
@@ -33,43 +41,39 @@
                                     <li><a href="#">Maria Berntsen</a></li>
                                     <li><a href="#">Marc Berthier</a></li>
                                 </ul>
-                                <ul>
-                                	<li><a href="#">Isabelle de Borchgrave, Dorothy Twining Globus</a></li>
-                                    <li><a href="#">Bould Design</a></li>
-                                    <li><a href="#">Ronan and Erwan Bouroullec</a></li>
-                                    <li><a href="#">Constantin Boym</a></li>
-                                    <li><a href="#">John Brauer</a></li>
-                                    <li><a href="#">Enrico Bressan</a></li>
-                                    <li><a href="#">Julian Brown</a></li>
-                                    <li><a href="#">François Brument</a></li>
+                            </div>
+                            
+                            <div class="drop" id="drop2">
+                            	<ul>
+                                	<li><a href="#">Harry Allen</a></li>
+                                    <li><a href="#">Ron Arad</a></li>
+                                    <li><a href="#">Ron Arad and Issey Miyake</a></li>
+                                    <li><a href="#">Arnell Group</a></li>
+                                    <li><a href="#">Maarten Baas</a></li>
+                                    <li><a href="#">Yves Behar</a></li>
+                                    <li><a href="#">Dror Benshetrit</a></li>
+                                    <li><a href="#">Maria Berntsen</a></li>
+                                    <li><a href="#">Marc Berthier</a></li>
                                 </ul>
-                                <ul>
-                                    <li><a href="#">Isabelle de Borchgrave, Dorothy Twining Globus</a></li>
-                                    <li><a href="#">Bould Design</a></li>
-                                    <li><a href="#">Ronan and Erwan Bouroullec</a></li>
-                                    <li><a href="#">Constantin Boym</a></li>
-                                    <li><a href="#">John Brauer</a></li>
-                                    <li><a href="#">Enrico Bressan</a></li>
-                                    <li><a href="#">Julian Brown</a></li>
-                                    <li><a href="#">François Brument</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Sam Buxton</a></li>
-                                    <li><a href="#">Humberto & Fernando Campana</a></li>
-                                    <li><a href="#">Critz Campbell</a></li>
-                                    <li><a href="#">Nicolai Canetti</a></li>
-                                    <li><a href="#">Julien Carretero</a></li>
-                                    <li><a href="#">Bill Stumpf & Don Chadwick</a></li>
-                                    <li><a href="#">Sandy Chilewich</a></li>
-                                    <li><a href="#">Biagio Cisotti</a></li>
-                                    <li><a href="#">Matali Crasset</a></li>
+                            </div>
+                            
+                            <div class="drop" id="drop3">
+                            	<ul>
+                                	<li><a href="#">Harry Allen</a></li>
+                                    <li><a href="#">Ron Arad</a></li>
+                                    <li><a href="#">Ron Arad and Issey Miyake</a></li>
+                                    <li><a href="#">Arnell Group</a></li>
+                                    <li><a href="#">Maarten Baas</a></li>
+                                    <li><a href="#">Yves Behar</a></li>
+                                    <li><a href="#">Dror Benshetrit</a></li>
+                                    <li><a href="#">Maria Berntsen</a></li>
+                                    <li><a href="#">Marc Berthier</a></li>
                                 </ul>
                             </div>
                         </ul>
                     </div>
                 </div>
             </div>
-            <?php endif; ?>
             
             <div id="grid" class="container">
             	<div class="gutter-sizer"></div>
@@ -112,4 +116,4 @@
 				});
 			</script>
 
-<?php if( !is_ajax() ) get_footer(); ?>
+<?php get_footer(); ?>

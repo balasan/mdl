@@ -101,6 +101,22 @@ function showPage(el)
 	return false;
 };
 
+function showDrop(elem, id)
+{
+	var active = true;
+	if( $(id).hasClass('show') ) active = false;
+		
+	$('.menu li').removeClass('active');
+	$('.drop').removeClass('show');
+	
+	if( active ) {
+		$(elem).parent().addClass('active');
+		$(id).addClass('show');
+	}
+	
+	return false;
+};
+
 $(function() {
 	
 	var baseurl = $('body').attr('data-base');

@@ -1121,6 +1121,17 @@ img { border:none; }
 	#grid .gutter-sizer {
 		width: 2%;
 	}
+	
+	.nav-panel.fixed .selector .menu {
+		width: 100%;
+	}
+	.nav-panel .selector .menu .drop ul {
+		width: 100%;
+	}
+	.nav-panel .selector .menu .drop {
+		overflow: auto;
+		max-height: 400px;	
+	}
 }
 
 @media screen and (max-width: 640px) {

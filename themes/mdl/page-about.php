@@ -1,4 +1,4 @@
-<?php if( !is_ajax() ) get_header();
+<?php get_header();
 	
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
@@ -54,4 +54,4 @@
 				});
 			</script>
 
-<?php if( !is_ajax() ) get_footer(); ?>
+<?php get_footer(); ?>

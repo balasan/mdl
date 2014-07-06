@@ -1,11 +1,9 @@
-<?php if( !is_ajax() ) get_header();
+<?php get_header();
 	
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 ?>
 
 			<?php
-            
-			if( !is_ajax() ) : 
            		
 			query_posts( array( 'page_id' => 11241 ) );
             	
@@ -24,9 +22,6 @@
             </div>
             <?php endwhile; ?>
             
-            <?php endif; ?>
-            
-			<?php if( !is_ajax() ) : ?>
             <div class="container nav-panel">
             	<div class="selector">
                 	<div class="panel">
@@ -57,7 +52,6 @@
                     </div>
                 </div>
             </div>
-            <?php endif; ?>
             
             <?php query_posts( array( 'post_type' => 'tv', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) ); ?>
     		<div id="videos" class="container">
@@ -108,4 +102,4 @@
 				});
 			</script>
 
-<?php if( !is_ajax() ) get_footer(); ?>
+<?php get_footer(); ?>

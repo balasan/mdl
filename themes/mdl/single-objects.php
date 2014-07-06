@@ -52,30 +52,16 @@
                 </article>
 			</div>
             <script type="text/javascript">
-				var stickStart = function() {
-					$("[data-sticky_column]").imagesLoaded(function() {
-						$("[data-sticky_column]").stick_in_parent({
-							parent			: "[data-sticky_parent]",
-							offset_top		: 102//,
-							//inner_scrolling : false,
-                        	//no_recalc		: true
-						});
+				$("[data-sticky_column]").imagesLoaded(function() {
+					$("[data-sticky_column]").stick_in_parent({
+						parent		: "[data-sticky_parent]",
+						offset_top	: 102
 					});
-				};
-				
-				stickStart();
+				});
 				
 				$( window ).on( 'resize', function() {
 					$(document.body).trigger("sticky_kit:recalc");
 				});
-				
-				/*$(window).resize(function(e) {
-					if( $(document).width() <= 640 )
-					{
-						//$(document.body);
-                   		$("[data-sticky_column]").trigger("sticky_kit:recalc").trigger("sticky_kit:detach");
-					}
-                });*/
 			</script>
 
 <?php get_footer(); ?>
