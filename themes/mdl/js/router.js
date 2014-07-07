@@ -29,12 +29,22 @@ var Router = (function() {
 		pushstate = 'no';
 	}
 
+	router.currentUrl = function(){
+		return currentUrl;
+	}
+
+	router.relativeUrl = function(){
+		return currentUrl.replace(homeUrl, '').replace(/\/$/, '');
+	}
 
 	router.route = function(route, fn) {
 		routes.push({
 			route: route,
 			callback: fn
 		});
+
+		relativeUrl = currentUrl.replace(homeUrl, '').replace(/\/$/, '');
+		routerFunction(relativeUrl)
 	}
 
 	var routerFunction = function(myUrl) {
@@ -118,9 +128,9 @@ var Router = (function() {
 
 					routerFunction(relativeUrl)
 
+					currentUrl = url;
 					after($response);
 
-					currentUrl == newUrl;
 					if (typeof window._gaq !== 'undefined') {
 						window._gaq.push(['_trackPageview', relativeUrl]);
 					}
