@@ -66,6 +66,23 @@ function create_post_type() {
 			'supports' => array('title', 'editor', 'thumbnail')
 		)
 	);
+	
+		register_post_type( 'Manufacturer',
+			array(
+				'labels' => array(
+					'name' => __( 'Manufacturers' ),
+					'singular_name' => __( 'Manufacturer' )
+				),
+				'public' => true,
+				'publically_queryable' => true,
+				'has_archive' => true,
+				'rewrite' => array('slug' => 'projects', 'with_front' => false),
+				'hierarchical' => true,
+				// page-attributes enables parent/child for posts
+				'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions', 'custom-fields'),
+				'taxonomies' => array('category', 'post_tag')
+			)
+		);
 
 	register_post_type( 'Objects',
 		array(
@@ -80,9 +97,8 @@ function create_post_type() {
 			'rewrite' => array('slug' => 'objects', 'with_front' => false),
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions', 'custom-fields'),
-			'taxonomies' => array('category','post_tag')
-
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
+			'taxonomies' => array('category', 'post_tag')
 		)
 	);
 
@@ -228,12 +244,10 @@ function theme_script_and_style()
 	wp_deregister_script('jquery');
 	wp_register_script ('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js');
 	
-	wp_register_style( 'swiper', get_template_directory_uri() . '/css/idangerous.swiper.css');	
 	wp_register_script( 'swiper', get_template_directory_uri() . '/js/swiper/idangerous.swiper-2.4.2.js');
 	
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('swiper');
-	wp_enqueue_style('swiper');
 }
 
 add_action('init', 'theme_script_and_style');

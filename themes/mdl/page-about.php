@@ -1,4 +1,4 @@
-<?php if( !is_ajax() ) get_header();
+<?php get_header();
 	
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
@@ -12,8 +12,7 @@
                 <?php
                 	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $src = $thumb['0'];
 					$collaborations = get_post_meta( $post->ID, 'collaborations', true );
-					$subtitle = get_post_meta( $post->ID, 'subtitle', true );
-				?>
+					$subtitle = get_post_meta( $post->ID, 'subtitle', true ); ?>
                 
             	<article class="post person stickem-container" id="post-<?php the_ID(); ?>">
                 	<div class="aside">
@@ -55,4 +54,4 @@
 				});
 			</script>
 
-<?php if( !is_ajax() ) get_footer(); ?>
+<?php get_footer(); ?>

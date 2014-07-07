@@ -709,6 +709,66 @@ img { border:none; }
     top: 102px;
 }
 
+#object .object {
+	display: table;
+	width: 100%;
+	position: relative;
+}
+#object img {
+	max-width: 100%;
+	margin-bottom: 25px;	
+}
+#object .all-objects,
+#object .content,
+#object .auther {
+	width: 35%;
+	display: table-cell;
+	vertical-align: top;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#object .all-objects {
+	width: 30%;
+	padding: 0 32px;
+	border-right: 1px solid #e3e3e3;
+}
+#object .content {
+	padding: 0 45px 0 35px;
+}
+#object .auther {
+	padding-right: 32px;
+}
+#object .all-objects h2 {
+	font-size: 14px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e3e3e3;
+	margin-bottom: 30px;
+	color: #00bcff;
+	line-height: 17px;
+	font-weight: normal;
+}
+#object {
+	font-family: "Gotham Book", sans-serif;
+	font-size: 15px;
+	line-height: 22px;
+	color: #6e6e6e;
+	padding: 40px 0 40px 0;
+	background: white;
+}
+#object .content h2,
+#object .auther h2 {
+	font-family: "Gotham", sans-serif;
+	font-size: 25px;
+	font-weight: 500;
+	color: #00bcff;
+	line-height: 35px;
+	margin-bottom: 25px;
+}
+
 #videos {
 
 }
@@ -1061,9 +1121,53 @@ img { border:none; }
 	#grid .gutter-sizer {
 		width: 2%;
 	}
+	
+	.nav-panel.fixed .selector .menu {
+		width: 100%;
+	}
+	.nav-panel .selector .menu .drop ul {
+		width: 100%;
+	}
+	.nav-panel .selector .menu .drop {
+		overflow: auto;
+		max-height: 400px;	
+	}
 }
 
 @media screen and (max-width: 640px) {
+	
+	#slider {
+		width: 100%;	
+	}
+	
+	#slider .arrow-left,
+	#slider .arrow-right {
+		display: none;		
+	}
+	
+	#object .object {
+		display: block;
+	}
+	#object .all-objects,
+	#object .content,
+	#object .auther {
+		width: 100%;
+		display: block;
+		padding: 0 30px;
+		margin-bottom: 30px;
+	}
+	#object .all-objects {
+		border: none;	
+	}
+	#object .row {
+		position: static !important;
+		height: auto !important;
+		width: auto !important;	
+	}
+	
+	#object .row+div {
+		display: none !important;
+	}
 	
 	#about .person {
 		border-bottom: 1px solid #cfcfcf;
