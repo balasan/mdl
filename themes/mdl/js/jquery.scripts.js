@@ -1,5 +1,11 @@
 function initPage() {
 	
+	if(Router.relativeUrl().match('objects')){
+		$('.logo').addClass('atf').show()
+	}
+	else{
+		$('.logo').removeClass('atf').show()
+	}
 	
 	var offset = 72;
 	
@@ -184,6 +190,8 @@ $(function() {
 
 
 			initPage();
+
+
 
 			$('.loading').removeClass('active');
 
