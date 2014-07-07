@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="content">
-                    	<div class="row" data-sticky_column>
+                    	<div class="row" data-sticky_column >
                     	<?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
                         <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $src = $thumb['0']; ?>
                         <?php if( !empty( $src ) ) : ?>
@@ -55,7 +55,8 @@
 				$("[data-sticky_column]").imagesLoaded(function() {
 					$("[data-sticky_column]").stick_in_parent({
 						parent		: "[data-sticky_parent]",
-						offset_top	: 102
+						offset_top	: 102,
+                        offset_bottom  : 40
 					});
 				});
 				
