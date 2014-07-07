@@ -124,6 +124,23 @@ function create_post_type() {
 		)
 	);
 
+	register_post_type( 'Manufacturer',
+		array(
+			'labels' => array(
+				'name' => __( 'Manufacturers' ),
+				'singular_name' => __( 'Manufacturer' )
+			),
+			'public' => true,
+			'publically_queryable' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'projects', 'with_front' => false),
+			'hierarchical' => true,
+			// page-attributes enables parent/child for posts
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
+			'taxonomies' => array('category','post_tag')
+		)
+	);	
+
 	register_post_type( 'Press',
 		array(
 			'labels' => array(
