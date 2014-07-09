@@ -522,7 +522,7 @@ img { border:none; }
 	overflow: hidden;
 }
 #grid .item.hide {
-	visibility: hidden;	
+	visibility: hidden;		
 }
 #grid .gutter-sizer {
 	width: 2%;

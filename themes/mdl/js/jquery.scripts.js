@@ -37,13 +37,31 @@ function initPage() {
 	var $container = $('#grid');
 	
 	if( $container.length ) {
+		
+		// $container.isotope({
+		// 	itemSelector: '.item',
+		// 	layoutMode: 'masonry',
+		// 	masonry: {
+		// 		gutter: ".gutter-sizer"
+		// 	}
+		// });
+
+	 //    $container.find('img').each(function(){
+	 //          $(this).on('load',function(){
+	 //              var $item = $(this).parent()
+	 //              $container.isotope('appended', $item.removeClass('hide'));
+	 //              $item.find('.display').css( 'top', ( $item.innerHeight() - $item.find('.display').innerHeight()) / 2 );
+	 //          })
+	 //      })
+
+
 		$container.isotope({
 			itemSelector: '.item',
 			layoutMode: 'masonry',
 			masonry: {
 				gutter: ".gutter-sizer"
 			}
-		});
+		})
 		
 		$container.imagesLoaded(function() {
 			$container.isotope({
@@ -64,7 +82,7 @@ function initPage() {
 						$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
 					});
 				});
-            });
+      });
 		});
 	}
 	
@@ -201,7 +219,7 @@ $(function() {
 	});
 
 	// Router('objects/',function(){
-		
+
 	// })
 
 

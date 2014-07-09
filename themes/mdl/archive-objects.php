@@ -5,7 +5,7 @@
 	query_posts( array( 'post_type' => 'objects', 'posts_per_page' => 30, 'order' => 'DESC', 'paged' => $paged ) );
 ?>
 
-			<div id="page" class="container">
+<!-- 			<div id="page" class="container">
             	<div class="page-the">The Show</div>
                 <div class="page-title"><h1>An Inside Look at Innovative Product Design.</h1></div>
                 <div class="page-excerpt">Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value....</div>
@@ -13,7 +13,7 @@
                 <div class="page-read-more">
                 	<a href="#" onclick="return showPage(this);">Read More</a>
                 </div>
-            </div>          
+            </div>   -->        
 			
             <div class="container nav-panel">
             	<div class="selector">
@@ -113,12 +113,21 @@
                     itemSelector: '.item',
                     // totalPages = opts.totalPages
                     after : function(newElements){
-                        $container.imagesLoaded(function() {
-                         $container.isotope('appended', $(newElements).removeClass('hide'));
-                         $container.find('.item').each(function() {
-                            $(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
-                        });
-                    });
+
+                        $container.find('img').each(function(){
+                            $(this).on('load',function(){
+                                var $item =  $(this).parent();
+                                $container.isotope('appended', $item.removeClass('hide'));
+                                $item.find('.display').css( 'top', ( $item.innerHeight() - $item.find('.display').innerHeight()) / 2 );
+                            })
+                        })
+
+                        // $container.imagesLoaded(function() {
+                        //  $container.isotope('appended', $(newElements).removeClass('hide'));
+                        //  $container.find('.item').each(function() {
+                        //     $(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+                        // });
+                    // });
                     }
 
                 })
