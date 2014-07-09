@@ -21,6 +21,8 @@ var Infscroll = (function() {
     $nav = $(navSelector)
     viewportHeight = $(window).height()
     lastPage = false;
+    oktoScroll=true;
+    lastScroll=0;
   }
 
   $(window).on('resize',function(){
