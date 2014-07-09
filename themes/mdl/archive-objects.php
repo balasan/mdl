@@ -5,7 +5,7 @@
 	query_posts( array( 'post_type' => 'objects', 'posts_per_page' => 30, 'order' => 'DESC', 'paged' => $paged ) );
 ?>
 
-			<!--<div id="page" class="container">
+			<div id="page" class="container">
             	<div class="page-the">The Show</div>
                 <div class="page-title"><h1>An Inside Look at Innovative Product Design.</h1></div>
                 <div class="page-excerpt">Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value....</div>
@@ -13,7 +13,7 @@
                 <div class="page-read-more">
                 	<a href="#" onclick="return showPage(this);">Read More</a>
                 </div>
-            </div>-->          
+            </div>          
 			
             <div class="container nav-panel">
             	<div class="selector">
@@ -79,7 +79,7 @@
             	<div class="gutter-sizer"></div>
                 <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
                 
-                <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
+                <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-large' );
 					$designer = get_post_meta( $post->ID, 'Designer', true );
 					$category = get_the_category();
 				?>

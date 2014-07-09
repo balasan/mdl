@@ -14,7 +14,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 
 // Additional Image Sizes
 if ( function_exists( 'add_image_size' ) ) {
-	// add_image_size( 'large-news', 620, 800 );
+	add_image_size( 'med-large', 620, 800 );
 }
 
 //Navigation Menus
