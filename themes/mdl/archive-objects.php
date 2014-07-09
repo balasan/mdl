@@ -95,25 +95,51 @@
                 </article>
                 
                 <?php endwhile; ?>
+
+            <div class="navigation" data-url="<?php echo get_next_posts_page_link(); ?>"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div>
+
             </div>
             
-            <div class="navigation"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div>
             
-            <script type="text/javascript">		
-				var $container = $('#grid');
-				
-				$container.infinitescroll("destroy").infinitescroll({
-					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
-      				bufferPx: Math.round( $(window).height() * 0.9 )
-				}, function( newElements ) {
-					$container.imagesLoaded(function() {
+            <script type="text/javascript">
+
+            $( document ).ready(function(){		
+                var $container = $('#grid');
+
+                Infscroll.init({
+                    navSelector : '.navigation',
+                    loader : $('.loading'),
+                    containerSelector : '#grid',
+                    itemSelector: '.item',
+                    // totalPages = opts.totalPages
+                    after : function(newElements){
+                        $container.imagesLoaded(function() {
                          $container.isotope('appended', $(newElements).removeClass('hide'));
-						 
-						 $container.find('.item').each(function() {
-							$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
-						});
-                	});
-				});
+                         $container.find('.item').each(function() {
+                            $(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+                        });
+                    });
+                    }
+
+                })
+            })
+
+				// var $container = $('#grid');
+
+				
+				// $container.infinitescroll("destroy").infinitescroll({
+				// 	pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
+    //   				bufferPx: Math.round( $(window).height() * 0.9 )
+				// }, function( newElements, self ) {
+                    
+    //                 // $container.find('.navigation a').attr('href',self.path[0] + (self.state.currPage + 1) + '/');
+					// $container.imagesLoaded(function() {
+     //                     $container.isotope('appended', $(newElements).removeClass('hide'));
+					// 	 $container.find('.item').each(function() {
+					// 		$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+					// 	});
+     //            	});
+				// });
 			</script>
 
 <?php get_footer(); ?>

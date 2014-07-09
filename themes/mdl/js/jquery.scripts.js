@@ -200,6 +200,10 @@ $(function() {
 
 	});
 
+	// Router('objects/',function(){
+		
+	// })
+
 
 	
 	initPage();

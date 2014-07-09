@@ -40,6 +40,8 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/ytplayer/inc/jquery.mb.YTPlayer.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.infinitescroll.js?ver=2.6.1' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.isotope.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/infinitescroll.js' ?>"></script>
+
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.scripts.js' ?>"></script>
 
 </head>

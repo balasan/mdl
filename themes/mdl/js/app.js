@@ -211,7 +211,7 @@ $(document).ready(function() {
 		var container = $('#isotope-container');
 
 		container.isotope({
-			itemSelector: '.item-w',
+			itemSelector: '.item-w', 
 			layoutMode: 'masonry',
 			masonry: {
 				columnWidth: 1,
