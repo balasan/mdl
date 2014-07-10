@@ -1123,14 +1123,21 @@ img { border:none; }
 		background: #00bcff;
 		margin-bottom: 0;
 	}
-	
+	#navigation .logo.atf {
+		height:50px;
+		
+	}	
 	#navigation .logo {
-		background: url(../images/logo-medium.png) no-repeat;
-		width: 148px;
-		height: 38px;
+		/*background-image: url(../images/logo-medium.png);*/
+		width: 70%;
+		/*height:24px;*/
+		background-size: 100% auto;
+
+		/*height: 38px;*/
 		position: relative;
-		background-size: 100% 100%;
+		/*background-size: 100% 100%;*/
 		top: -10px;
+		margin:0px !important;
 	}
 	
 	#grid .item {
@@ -1226,3 +1233,7 @@ img { border:none; }
 		width: 0;
 	}
 }
+
+
+
+u

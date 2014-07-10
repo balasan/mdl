@@ -55,13 +55,13 @@ function initPage() {
 	 //      })
 
 
-		$container.isotope({
-			itemSelector: '.item',
-			layoutMode: 'masonry',
-			masonry: {
-				gutter: ".gutter-sizer"
-			}
-		})
+		// $container.isotope({
+		// 	itemSelector: '.item',
+		// 	layoutMode: 'masonry',
+		// 	masonry: {
+		// 		gutter: ".gutter-sizer"
+		// 	}
+		// })
 		
 		$container.imagesLoaded(function() {
 			$container.isotope({
