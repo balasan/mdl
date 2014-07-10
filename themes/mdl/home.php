@@ -14,7 +14,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                     	<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($the_query->ID), 'large' ); $src = $thumb['0']; ?>
+                        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($the_query->ID), 'full' ); $src = $thumb['0']; ?>
                         <div class="swiper-slide" style="background: url('<?php echo $src; ?>') no-repeat center center; background-size: cover; text-indent: -9999px;">
                             <h2><?php the_title(); ?></h2>
                         </div>
