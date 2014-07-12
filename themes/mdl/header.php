@@ -41,7 +41,6 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.infinitescroll.js?ver=2.6.1' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.isotope.min.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/infinitescroll.js' ?>"></script>
-
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.scripts.js' ?>"></script>
 
 </head>
@@ -59,7 +58,7 @@
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>about/" class="about <?php if( is_page('about') ) echo 'active'; ?>">ABOUT</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>tv/" class="tv <?php if( is_post_type_archive('tv') ) echo 'active'; ?>">TV</a></li>
                 </ul>
-                <ul class="nav-btn"><li></li><li></li><li></li></ul>
+                <ul class="nav-btn" onclick="$('body').toggleClass('menu-open');"><li></li><li></li><li></li></ul>
             </nav>
         </header>
         

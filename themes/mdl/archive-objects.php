@@ -2,7 +2,56 @@
 	
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
-	query_posts( array( 'post_type' => 'objects', 'posts_per_page' => 30, 'order' => 'DESC', 'paged' => $paged ) );
+	$designer_id = $_REQUEST['designer'];
+	
+	function wp_filter_add_meta($meta_key, $meta_value, $options)
+	{
+		if( !isset( $options['meta_query'] ) )
+			$options['meta_query'] = array();
+			
+		$options['meta_query'][] = array(
+			'key' => $meta_key,
+			'value' => $meta_value
+		);
+			
+		return $options;
+	}
+	
+	function wp_filter_url_build($meta_key, $meta_value = '')
+	{
+		$wp_filter_url = array();
+		
+		/*if( !($meta_key == 'designer_id') &&
+			isset($_REQUEST['designer_id']) && 
+			!empty($_REQUEST['designer_id']) )
+			$wp_filter_url['designer_id'] = $_REQUEST['designer_id'];
+		
+		if( !($meta_key == 'manufacturer_id') &&
+			isset($_REQUEST['manufacturer_id']) && 
+			!empty($_REQUEST['manufacturer_id']) )
+			$wp_filter_url['manufacturer_id'] = $_REQUEST['manufacturer_id'];*/
+		
+		if( !empty( $meta_value ) )
+			$wp_filter_url[$meta_key] = $meta_value;
+		
+		echo ((count($wp_filter_url)) ? '?':'') . http_build_query($wp_filter_url);
+	}	
+	
+	$args = array(
+		'post_type' => 'objects',
+		'posts_per_page' => 30,
+		'order' => 'DESC',
+		'paged' => $paged
+	);
+	
+	if( isset($_REQUEST['designer_id']) && !empty($_REQUEST['designer_id']) )
+		$args = wp_filter_add_meta('designer_id', $_REQUEST['designer_id'], $args);
+		
+	if( isset($_REQUEST['manufacturer_id']) && !empty($_REQUEST['manufacturer_id']) )
+		$args = wp_filter_add_meta('manufacturer_id', $_REQUEST['manufacturer_id'], $args);
+		
+	if( isset($_REQUEST['category_id']) && !empty($_REQUEST['category_id']) )
+		$args['cat'] = $_REQUEST['category_id'];
 ?>
 
 <!-- 			<div id="page" class="container">
@@ -20,54 +69,47 @@
                 	<div class="panel">
                         <ul class="menu">
                             <li class="quick">
-                            	<a href="#" class="external" onclick="return showDrop(this, '#drop1');" style="color: #d70377;">Designer</a>
+                            	<a href="#" class="external" onclick="return showDrop(this, '#designers');" style="color: #d70377;">Designer</a>
                             </li>
                             <li class="quick">
-                            	<a href="#" class="external" onclick="return showDrop(this, '#drop2');">Manufacturer</a>
+                            	<a href="#" class="external" onclick="return showDrop(this, '#manufacturer');">Manufacturer</a>
                             </li>
                             <li class="quick">
-                            	<a href="#" class="external" onclick="return showDrop(this, '#drop3');" style="color: #00bcff;">Category</a>
+                            	<a href="#" class="external" onclick="return showDrop(this, '#categories');" style="color: #00bcff;">Category</a>
                             </li>
                             
-                            <div class="drop" id="drop1">
+                            <div class="drop" id="designers">
                             	<ul>
-                                	<li><a href="#">Harry Allen</a></li>
-                                    <li><a href="#">Ron Arad</a></li>
-                                    <li><a href="#">Ron Arad and Issey Miyake</a></li>
-                                    <li><a href="#">Arnell Group</a></li>
-                                    <li><a href="#">Maarten Baas</a></li>
-                                    <li><a href="#">Yves Behar</a></li>
-                                    <li><a href="#">Dror Benshetrit</a></li>
-                                    <li><a href="#">Maria Berntsen</a></li>
-                                    <li><a href="#">Marc Berthier</a></li>
+                                	<li><a href="?">All</a></li>
+                                	<?php $filter_designer = new WP_Query( array( 'post_type' => 'designer', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC' ) ); ?>
+                                    <?php if( $filter_designer->have_posts() ) while ( $filter_designer->have_posts() ) : $filter_designer->the_post();  ?>
+                                    	<?php $title = get_the_title(); if ( !empty( $title ) ) : ?>
+                                        <li><a href="<?php wp_filter_url_build('designer_id', get_the_ID()); ?>"><?php echo $title; ?></a></li>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
                                 </ul>
                             </div>
                             
-                            <div class="drop" id="drop2">
+                            <div class="drop" id="manufacturer">
                             	<ul>
-                                	<li><a href="#">Harry Allen</a></li>
-                                    <li><a href="#">Ron Arad</a></li>
-                                    <li><a href="#">Ron Arad and Issey Miyake</a></li>
-                                    <li><a href="#">Arnell Group</a></li>
-                                    <li><a href="#">Maarten Baas</a></li>
-                                    <li><a href="#">Yves Behar</a></li>
-                                    <li><a href="#">Dror Benshetrit</a></li>
-                                    <li><a href="#">Maria Berntsen</a></li>
-                                    <li><a href="#">Marc Berthier</a></li>
+                                	<li><a href="?">All</a></li>
+                                	<?php $filter_manufacturer = new WP_Query( array( 'post_type' => 'Manufacturer', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC' ) ); ?>
+                                    <?php if( $filter_manufacturer->have_posts() ) while ( $filter_manufacturer->have_posts() ) : $filter_manufacturer->the_post();  ?>
+                                    	<?php $title = get_the_title(); if ( !empty( $title ) ) : ?>
+                                    	<li><a href="<?php wp_filter_url_build('manufacturer_id', get_the_ID()); ?>"><?php echo $title; ?></a></li>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
                                 </ul>
                             </div>
                             
-                            <div class="drop" id="drop3">
+                            <div class="drop" id="categories">
                             	<ul>
-                                	<li><a href="#">Harry Allen</a></li>
-                                    <li><a href="#">Ron Arad</a></li>
-                                    <li><a href="#">Ron Arad and Issey Miyake</a></li>
-                                    <li><a href="#">Arnell Group</a></li>
-                                    <li><a href="#">Maarten Baas</a></li>
-                                    <li><a href="#">Yves Behar</a></li>
-                                    <li><a href="#">Dror Benshetrit</a></li>
-                                    <li><a href="#">Maria Berntsen</a></li>
-                                    <li><a href="#">Marc Berthier</a></li>
+                                	<li><a href="?">All</a></li>
+                            		<?php $categories = get_categories();
+									
+									if( $categories ) foreach($categories as $category) : ?>
+                                    	<li><a href="<?php wp_filter_url_build('category_id', $category->term_id); ?>"><?php echo $category->cat_name; ?></a></li>
+									<?php endforeach; ?>
                                 </ul>
                             </div>
                         </ul>
@@ -76,7 +118,9 @@
             </div>
             
             <div id="grid" class="container">
+            	<a href="#" class="search-btn external" onclick="$('#search').toggleClass('show'); return false;"></a>
             	<div class="gutter-sizer"></div>
+                <?php query_posts( $args ); ?>
                 <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
                 
                 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-large' );
