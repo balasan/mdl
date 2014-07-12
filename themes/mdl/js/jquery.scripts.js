@@ -27,11 +27,6 @@ function initPage() {
 				$navPanel.addClass('fixed');
 			else $navPanel.removeClass('fixed');
 		});
-		
-		$('.nav-panel .drop a').click(function() {
-			$('.quick').toggleClass('active');
-			$('.drop').toggleClass('show');
-		});
 	}
 	
 	var $container = $('#grid');
@@ -55,13 +50,13 @@ function initPage() {
 	 //      })
 
 
-		// $container.isotope({
-		// 	itemSelector: '.item',
-		// 	layoutMode: 'masonry',
-		// 	masonry: {
-		// 		gutter: ".gutter-sizer"
-		// 	}
-		// })
+		$container.isotope({
+			itemSelector: '.item',
+			layoutMode: 'masonry',
+			masonry: {
+				gutter: ".gutter-sizer"
+			}
+		})
 		
 		$container.imagesLoaded(function() {
 			$container.isotope({
@@ -150,7 +145,6 @@ $(function() {
 	Router.init({
 		home: baseurl,
 		before: function(url) {
-			//$("#container").hide();
 			$('.loading').addClass('active');
 			$('input').blur();
 
@@ -161,21 +155,10 @@ $(function() {
 
 		},
 		after: function($response) {
-
-			//var pageInfo = $response.find('#content').data('info');
-			
-			//if (!pageInfo)
-			//	pageInfo = {};
-
-
-			//var header = $response.find('header').html();
 			var content = $response.find('#container').html();
 			var menu = $response.find('#navigation .menu').html();
-			//var footer = $response.find('#footer').html();
 
 			targetTitle = $response.filter('title').text();
-
-			//implement saving scroll to router's History State
 			
 			if( $('#grid').length )
 				$('#grid').infinitescroll('destroy');
@@ -199,30 +182,16 @@ $(function() {
 					else
 						$("#container").html(content);
 					$("#navigation .menu").html(menu);
-					//$('#footer').remove();
-					//$("#wrapper").append(footer);
 				}).fadeIn('slow');
 
-
-
-
-
 			initPage();
-
-
 
 			$('.loading').removeClass('active');
 
 			document.title = targetTitle;
-		},
+		}
 
 	});
-
-	// Router('objects/',function(){
-
-	// })
-
-
 	
 	initPage();
 	

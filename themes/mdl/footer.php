@@ -22,7 +22,7 @@
     <div id="search">
     	<div class="search">
     		<h2>Search:</h2>
-        	<div class="search-field"><input type="text" value="Keyword, Designer"></div>
+        	<div class="search-field"><input type="text" placeholder="Keyword, Designer"></div>
         </div>
     </div>
     
