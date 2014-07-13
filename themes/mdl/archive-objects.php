@@ -21,16 +21,6 @@
 	{
 		$wp_filter_url = array();
 		
-		/*if( !($meta_key == 'designer_id') &&
-			isset($_REQUEST['designer_id']) && 
-			!empty($_REQUEST['designer_id']) )
-			$wp_filter_url['designer_id'] = $_REQUEST['designer_id'];
-		
-		if( !($meta_key == 'manufacturer_id') &&
-			isset($_REQUEST['manufacturer_id']) && 
-			!empty($_REQUEST['manufacturer_id']) )
-			$wp_filter_url['manufacturer_id'] = $_REQUEST['manufacturer_id'];*/
-		
 		if( !empty( $meta_value ) )
 			$wp_filter_url[$meta_key] = $meta_value;
 		
@@ -43,6 +33,9 @@
 		'order' => 'DESC',
 		'paged' => $paged
 	);
+	
+	if( isset($_REQUEST['search']) && !empty($_REQUEST['search']) )
+		$args['s'] = mysql_real_escape_string($_REQUEST['search']);
 	
 	if( isset($_REQUEST['designer_id']) && !empty($_REQUEST['designer_id']) )
 		$args = wp_filter_add_meta('designer_id', $_REQUEST['designer_id'], $args);
@@ -118,7 +111,7 @@
             </div>
             
             <div id="grid" class="container">
-            	<a href="#" class="search-btn external" onclick="$('#search').toggleClass('show'); return false;"></a>
+            	<a href="#" class="search-btn external" onclick="$('#search').addClass('show'); return false;"></a>
             	<div class="gutter-sizer"></div>
                 <?php query_posts( $args ); ?>
                 <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>

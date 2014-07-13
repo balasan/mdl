@@ -135,6 +135,17 @@ function showDrop(elem, id)
 	return false;
 };
 
+function getSearch(evt, self)
+{
+	if( evt.keyCode == 13 )
+	{
+		$('<a href="#"></a>').hide().appendTo('body').attr('href', '?search=' + $(self).val()).trigger('click').remove();
+		$('#search').removeClass('show');
+		
+		return false;
+	}
+}
+
 var objectsCache;
 var objectsScrollPosition = 0;
 
