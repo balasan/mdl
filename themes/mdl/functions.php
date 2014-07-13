@@ -252,29 +252,5 @@ function theme_script_and_style()
 
 add_action('init', 'theme_script_and_style');
 
-	add_action('wp_ajax_search', 'ajax_search_request');
-	add_action('wp_ajax_nopriv_search', 'ajax_search_request');
-
-	function ajax_search_request() {
-		
-		$value = mysql_real_escape_string($_REQUEST['value']);
-		
-		$args = array(
-			's' => $value,
-			'posts_per_page' => 8,
-			'post_type' => array('projects', 'news', 'works')
-		);
-		
-		$query = new WP_Query( $args );
-		
-		while ( $query->have_posts() ) {
-			$query->the_post();
-			echo '<li><a href="' . get_permalink() . '" onclick="return nav.go(this);"><span>' . get_post_type() . '</span><p>' . get_the_title() . '</p></a></li>';
-		}
-		
-		exit;
-	}
-
-
 
 ?>
