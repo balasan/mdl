@@ -89,7 +89,7 @@ img { border:none; }
 
 #header {
 	position: fixed;
-	height: 105px;
+	/*height: 105px;*/
 	top: 0; left: 0;
 	width: 100%;
 	z-index: 1005;
@@ -401,7 +401,7 @@ img { border:none; }
 #slider {
 	position: relative;
 	width: 80%;
-	height: 500px;
+	height: 500px !important;
 	margin: 0 auto 50px auto;
 }
 #slider .swiper-container {
@@ -1193,13 +1193,17 @@ img { border:none; }
 		background: #00bcff;
 		margin-bottom: 0;
 	}
+
+	#navigation .logo.atf{
+		height:38px;
+	}
 	
 	#navigation .logo {
-		background: url(../images/logo-medium.png) no-repeat;
-		width: 148px;
-		height: 38px;
+		/*background: url(../images/logo-medium.png) no-repeat;*/
+		/*width: 148px;*/
+		height: 20px;
 		position: relative;
-		background-size: 100% 100%;
+		/*background-size: 100% 100%;*/
 		top: -10px;
 	}
 	
