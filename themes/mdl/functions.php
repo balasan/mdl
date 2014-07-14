@@ -3,7 +3,7 @@
 // update_option('siteurl','http://192.168.1.3/wordpress');
 // update_option('home','http://192.168.1.3/wordpress');
 
-//update_option('upload_url_path', 'http://kehindewiley.com/wp/wp-content/uploads');
+update_option('upload_url_path', 'http://mydesignlife.com/dev/wp-content/uploads');
 //update_option('upload_url_path', 'http://localhost/mdl_wp/wp-content/uploads');
 
 

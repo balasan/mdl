@@ -156,7 +156,7 @@ $(function() {
 	Router.init({
 		home: baseurl,
 		before: function(url) {
-			$('.loading').addClass('active');
+			$('.loading').addClass('active').show();
 			$('input').blur();
 
 			if(Router.relativeUrl() == 'objects'){
@@ -197,7 +197,7 @@ $(function() {
 
 			initPage();
 
-			$('.loading').removeClass('active');
+			$('.loading').removeClass('active').hide();
 
 			document.title = targetTitle;
 		}
