@@ -50,7 +50,7 @@
     <div id="wrapper">
     	<header id="header">
             <nav id="navigation">
-            	<div class="logo">My Design Life</div>
+            	<div class="logo clearfix">My Design Life</div>
                 <ul class="menu">
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>" class="home <?php if( is_home()) echo 'active'; ?>">HOME</a></li>
                 	  <li><a href="<?php echo esc_url( home_url( '/' ) )?>books/" class="books <?php if( is_post_type_archive('books') ) echo 'active'; ?>">BOOKS</a></li>
