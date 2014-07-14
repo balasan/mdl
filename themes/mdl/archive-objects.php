@@ -150,7 +150,10 @@
                     itemSelector: '.item',
                     // totalPages = opts.totalPages
                     after : function(newElements){
-
+                        Infscroll.okToLoad=false;
+                        $container.imagesLoaded(function() {
+                            Infscroll.okToLoad = true;
+                        })
                         $container.find('img').each(function(){
                             $(this).on('load',function(){
                                 var $item =  $(this).parent();

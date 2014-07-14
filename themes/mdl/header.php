@@ -54,7 +54,7 @@
                 <ul class="menu">
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>" class="home <?php if( is_home()) echo 'active'; ?>">HOME</a></li>
                 	  <li><a href="<?php echo esc_url( home_url( '/' ) )?>books/" class="books <?php if( is_post_type_archive('books') ) echo 'active'; ?>">BOOKS</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>objects/" class="aotf <?php if( is_post_type_archive('objects') ) echo 'active'; ?>">ANTIQUES OF THE FUTURE</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/' ) )?>objects/" class="aotf <?php if( is_post_type_archive('objects') ) echo 'active'; ?>">ANTIQUES <br class="mobile">OF THE FUTURE</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>about/" class="about <?php if( is_page('about') ) echo 'active'; ?>">ABOUT</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/' ) )?>tv/" class="tv <?php if( is_post_type_archive('tv') ) echo 'active'; ?>">TV</a></li>
                 </ul>

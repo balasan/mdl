@@ -8,6 +8,7 @@ var Infscroll = (function() {
   var viewportHeight;
   var lastScroll=0;
   var $navSelector, $container, itemSelector;
+  infscroll.okToLoad = true;
 
   infscroll.init = function(opts){
     after = opts.after
@@ -23,6 +24,7 @@ var Infscroll = (function() {
     lastPage = false;
     oktoScroll=true;
     lastScroll=0;
+    infscroll.okToLoad = true;
   }
 
   $(window).on('resize',function(){
@@ -42,7 +44,7 @@ var Infscroll = (function() {
 
     docHeight = $(document).height();
 
-    if (viewportHeight + scrolled + 300 > docHeight && oktoScroll) {
+    if (viewportHeight + scrolled + 300 > docHeight && oktoScroll && infscroll.okToLoad) {
 
       oktoScroll = false;
       lastScroll = scrolled;

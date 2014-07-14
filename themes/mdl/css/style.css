@@ -1104,21 +1104,33 @@ img { border:none; }
         	box-sizing: border-box;
 }
 
+.mobile{
+	display:none;
+}
+
 @media screen and (max-width: 980px) {
 	
-	#container, #navigation .menu, #header {				
-		-webkit-transition: all 0.5s ease-out;
-	       -moz-transition: all 0.5s ease-out;
-			 -o-transition: all 0.5s ease-out;
-				transition: all 0.5s ease-out;
+	.mobile{
+		display:block;
 	}
+
+	#container, .menu, .nav-btn, #navigation .logo, footer {				
+		-webkit-transition: all 0.23s ease-out;
+	       -moz-transition: all 0.23s ease-out;
+			 -o-transition: all 0.23s ease-out;
+				transition: all 0.23s ease-out;
+	}
+
+
 	
 	#navigation .menu {
 		position: fixed;
 		height: 100%;
-		width: 290px;
+		width: 200px;
 		top: 0;
-		left: -290px;
+
+		left: -200px;
+
 		background: #f1f1f1;
 		z-index: 1005;
 		padding: 20px 0;
@@ -1142,24 +1154,34 @@ img { border:none; }
 	body.menu-open {
 		position: relative;
 	}
-	body.menu-open #container {
+	body.menu-open #container,body.menu-open footer {
+
 		-webkit-backface-visibility: hidden;
 		position: relative;
 		
-		-webkit-transform: translate3d(290px, 0, 0);
-		-moz-transform: translate3d(290px, 0, 0);
-		-ms-transform: translate3d(290px, 0, 0);
-		-o-transform: translate3d(290px, 0, 0);
-		transform: translate3d(290px, 0, 0);
+		-webkit-transform: translate3d(200px, 0, 0);
+		-moz-transform: translate3d(200px, 0, 0);
+		-ms-transform: translate3d(200px, 0, 0);
+		-o-transform: translate3d(200px, 0, 0);
+		transform: translate3d(200px, 0, 0);
 				
 	}
-	body.menu-open #navigation .menu {
+	body.menu-open #navigation .menu{
 		overflow: auto;
-		left: 0;
 	}
-	body.menu-open #header {
-		left: 290px;
-	}
+
+	body.menu-open #navigation .menu,
+	body.menu-open .nav-btn,
+	body.menu-open .logo {
+		-webkit-transform: translate3d(200px, 0, 0);
+		-moz-transform: translate3d(200px, 0, 0);
+		-ms-transform: translate3d(200px, 0, 0);
+		-o-transform: translate3d(200px, 0, 0);
+		transform: translate3d(200px, 0, 0);
+		
+	} 
+
+
 	
 	#navigation .menu li a {
 		border-bottom-color: #f1f1f1;
