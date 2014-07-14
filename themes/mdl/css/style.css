@@ -27,7 +27,7 @@ body {
         	box-sizing: border-box;
 }
 
-body:after {
+bottomBorder {
 	content: '.';
 	text-indent: -99999px;
 	position: absolute;
@@ -106,7 +106,7 @@ img { border:none; }
 	padding: 23px 12px 0 12px;
 	background: #fff;
 	overflow:auto;
-	/*height: 72px;*/
+	min-height: 72px;
 	
 	-webkit-box-sizing: border-box;
    	   -moz-box-sizing: border-box;

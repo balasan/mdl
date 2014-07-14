@@ -156,6 +156,8 @@ $(function() {
 	Router.init({
 		home: baseurl,
 		before: function(url) {
+			$('body').removeClass('menu-open')
+
 			$('.loading').addClass('active').show();
 			$('input').blur();
 
