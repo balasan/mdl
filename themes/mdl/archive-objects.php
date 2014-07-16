@@ -98,8 +98,8 @@
                             <div class="drop" id="categories">
                             	<ul>
                                 	<li><a href="?">All</a></li>
-                            		<?php $categories = get_categories();
-									
+                            		<?php $categories = get_categories('hide_empty=0');
+								
 									if( $categories ) foreach($categories as $category) : ?>
                                     	<li><a href="<?php wp_filter_url_build('category_id', $category->term_id); ?>"><?php echo $category->cat_name; ?></a></li>
 									<?php endforeach; ?>
