@@ -4,18 +4,18 @@
     <footer id="footer">
     	<nav id="footer-nav">
         	<ul class="menu">
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Antiques of the Future</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">TV</a></li>
-                <li><a href="#">Press</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/' ) )?>books/">Books</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/' ) )?>objects/">Antiques of the Future</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/' ) )?>about/">About</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/' ) )?>tv/">TV</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/' ) )?>press/">Press</a></li>
             	<li><a href="#">Contact</a></li>
         	</ul>
         </nav>
         <ul id="socs">
-            <li><a href="#" class="fb">FaceBook</a></li>
-            <li><a href="#" class="tw">Twitter</a></li>
-        	<li><a href="#" class="in">Instagram</a></li>
+            <li><a href="#" class="fb fa fa-facebook-square"></a></li>
+            <li><a href="#" class="tw fa fa-twitter"></a></li>
+        	<li><a href="#" class="in fa fa-instagram"></a></li>
     	</ul>
 	</footer>
     
@@ -34,6 +34,8 @@
             <div class="bounce3"></div>
         </div>
     </div>
+    
+    <div id="scrollToTop" onclick="scrollToTop();"></div>
     
     <bottomBorder>
     <?php do_action('wp_footer'); ?>

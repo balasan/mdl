@@ -1,19 +1,15 @@
-<?php get_header();
-	
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-?>
+<?php get_header(); ?>
 
 			<?php
            		
-			query_posts( array( 'page_id' => 11241 ) );
+			query_posts( array( 'pagename' => 'tv' ) );
             	
 			if( have_posts() ) while ( have_posts() ) : the_post();
 			
-			$subtitle = get_post_meta( $post->ID, 'sub-title', true );
 			?>
 			<div id="page" class="container">
-            	<div class="page-the"><?php the_title(); ?></div>
-                <div class="page-title"><h1><?php echo $subtitle; ?></h1></div>
+            	<div class="page-the">The Show</div>
+                <div class="page-title"><h1><?php the_field('sub-title'); ?></h1></div>
                 <div class="page-excerpt"><?php the_excerpt(); ?></div>
                 <div class="page-excerpt-full"><?php the_content(); ?></div>
                 <div class="page-read-more">
@@ -27,33 +23,26 @@
                 	<div class="panel">
                         <ul class="menu">
                             <li class="quick blue">
-                            	<a href="#" class="external" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">Episodes</a>
+                            	<a href="#" class="external" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">
+                                	<span>Episodes</span>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
                             </li>
                             
                             <div class="drop">
-                            <ul>
-                            	<li><a href="<?php echo esc_url( home_url( '/' ) )?>/tv/">All</a></li>
-                            <?php $taxonomies = get_object_taxonomies( (object) array( 'post_type' => 'tv' ) );
-							
-							foreach( $taxonomies as $taxonomy ) :
-								
-								$terms = get_terms( $taxonomy );
-							
-								foreach( $terms as $term ) :
-										
-									?><li><a href="<?php echo get_term_link($term, 'tv'); ?>"><?php echo $term->name; ?></a></li><?php
-							
-								endforeach;
-							
-							endforeach; ?>
-                            </ul>
+                                <ul>
+                                <?php query_posts( array( 'post_type' => 'tv', 'posts_per_page' => -1, 'order' => 'DESC' ) ); ?>
+                                <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
+                                    <li><a href="#" class="external" onclick="return showEpisode('<?php the_ID(); ?>');"><?php the_title(); ?></a></li>
+                                <?php endwhile; ?>
+                                </ul>
                             </div>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <?php query_posts( array( 'post_type' => 'tv', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) ); ?>
+            <?php query_posts( array( 'post_type' => 'tv', 'posts_per_page' => -1, 'order' => 'DESC' ) ); ?>
     		<div id="videos" class="container">
             	
                 <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -63,7 +52,7 @@
 					$video_url = get_post_meta( $post->ID, 'video_url', true );
 				?>
                 
-                <article class="post video stickem-container" id="post-<?php the_ID(); ?>">
+                <article class="post video stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
                     <div class="content">
                     	<div class="main">
                         	<h2><?php the_title(); ?></h2>
@@ -72,7 +61,7 @@
                         </div>
                     </div>
                     <div class="aside">
-                    	<div class="image stickem">
+                    	<div class="image stickem" data-sticky_column>
                         	<div class="player">
                             	<?php if ( !empty($video_url) ) : ?>
                             	<div style="height: 282px; overflow: hidden;" class="ytPlayer" data-property="{videoURL:'<?php echo $video_url; ?>',containment:'self',autoPlay:false, mute:false, startAt:0, opacity:1, loop:false}">
@@ -92,13 +81,6 @@
             <script type="text/javascript">
 				$(function() {
 					$(".ytPlayer").mb_YTPlayer();
-				});
-				$('#videos').infinitescroll({
-					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
-      				bufferPx: Math.round( $(window).height() * 0.9 )
-				}, function( appended ) {
-					
-					$(appended).find('.ytPlayer').mb_YTPlayer();
 				});
 			</script>
 

@@ -14,14 +14,16 @@
                     	<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $src = $thumb['0']; ?>
                         <?php if( !empty( $src ) ) : ?>
                         <div class="image">
-                        	<img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
+                        	<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                            	<img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
+                            </a>
                         </div>
                         <?php endif; ?>
                         <?php endwhile; ?>
                         </div>
                     </div>
                     <div class="content">
-                    	<div class="row" data-sticky_column >
+                    	<div class="row" data-sticky_column>
                     	<?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
                         <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $src = $thumb['0']; ?>
                         <?php if( !empty( $src ) ) : ?>
@@ -31,6 +33,28 @@
                         <?php endif; ?>
                         <h2><?php the_title(); ?></h2>
                         <p><?php the_content(); ?></p>
+                        <div class="enlarge">
+                        	<a href="<?php echo $src; ?>" target="_blank" class="enlarge-btn">Enlarge +</a>
+                            <script type="text/javascript">
+								$('.enlarge-btn').fancybox({
+									openEffect  : 'elastic',
+									closeEffect : 'elastic',
+									prevEffect	: 'elastic',
+									nextEffect	: 'elastic',
+									helpers :
+									{
+										title	:
+										{
+											type: 'outside'
+										},
+										overlay :
+										{
+											locked: false
+										}
+									}
+								});
+                            </script>
+                        </div>
                         <?php endwhile; ?>
                         </div>
                     </div>
@@ -52,17 +76,7 @@
                 </article>
 			</div>
             <script type="text/javascript">
-				$("[data-sticky_column]").imagesLoaded(function() {
-					$("[data-sticky_column]").stick_in_parent({
-						parent		: "[data-sticky_parent]",
-						offset_top	: 102,
-                        offset_bottom  : 40
-					});
-				});
-				
-				$( window ).on( 'resize', function() {
-					$(document.body).trigger("sticky_kit:recalc");
-				});
+			
 			</script>
 
 <?php get_footer(); ?>

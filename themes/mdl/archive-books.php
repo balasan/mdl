@@ -15,9 +15,9 @@
 					$subtitle = get_post_meta( $post->ID, 'subtitle', true );
 				?>
                 
-            	<article class="post person stickem-container" id="post-<?php the_ID(); ?>">
+            	<article class="post person stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
                 	<div class="aside">
-                    	<div class="image stickem">
+                    	<div class="image stickem" data-sticky_column>
                         	<?php if( !empty( $src ) ) : ?>
                             <img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
                             <?php endif; ?>
@@ -49,9 +49,13 @@
 					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
       				bufferPx: Math.round( $(window).height() * 0.9 )
 				}, function( appended ) {
-					
-					for( var elem in appended )
-						$(appended[elem]).sticky({ offset: 72 });
+					$("[data-sticky_parent]").imagesLoaded(function() {
+						$("[data-sticky_column]").stick_in_parent({
+							parent		: "[data-sticky_parent]",
+							offset_top	: 102,
+							offset_bottom  : 40
+						});
+					});
 				});
 			</script>
 
