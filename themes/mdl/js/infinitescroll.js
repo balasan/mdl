@@ -49,8 +49,6 @@ var Infscroll = (function() {
       oktoScroll = false;
       lastScroll = scrolled;
 
-      console.log('bla')
-
       $nav = $(navSelector)
 
       // var container = $('.gridContainer');
