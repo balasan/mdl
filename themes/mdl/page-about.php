@@ -1,8 +1,8 @@
 <?php get_header();
 	
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	
-	query_posts( array( 'post_type' => 'designer', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
+	// query_posts( array( 'post_type' => 'designer', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
 
 ?>
     		<div id="about" class="container">
@@ -14,23 +14,24 @@
 					$collaborations = get_post_meta( $post->ID, 'collaborations', true );
 					$subtitle = get_post_meta( $post->ID, 'subtitle', true ); ?>
                 
-            	<article class="post person stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
-                	<div class="aside">
-                    	<div class="image stickem" data-sticky_column>
-                        	<?php if( !empty( $src ) ) : ?>
+                <article class="post person stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
+                    <div class="aside">
+                        <div class="image stickem" data-sticky_column>
+                            <?php if( !empty( $src ) ) : ?>
                             <img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
                             <?php endif; ?>
                         </div>
                     </div>
                     <div class="content">
                     	<div class="main">
-                        	<h2><?php the_title(); ?></h2>
+                        	<h2><?php the_field('title'); ?></h2>
                             <h3><?php echo $subtitle; ?></h3>
                         	<p><?php the_content(); ?></p>
                             <?php if ( !empty($collaborations) ) : ?>
                             <div class="collaborations">
                             	<h4>Collaborations</h4>
-                                <p><?php echo $collaborations; ?>.... <a href="#">Read More</a></p>
+                                <p><?php echo $collaborations; ?>
+                                <!-- .... <a href="#">Read More</a></p> -->
                             </div>
                             <?php endif; ?>
                         </div>
@@ -41,21 +42,17 @@
                 
             </div>
             
-            <div class="navigation"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div>
+            <!-- <div class="navigation"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div> -->
             
             <script type="text/javascript">
-				$('#about').infinitescroll("destroy").infinitescroll({
-					pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
-      				bufferPx: Math.round( $(window).height() * 0.9 )
-				}, function( appended ) {	
-					$("[data-sticky_parent]").imagesLoaded(function() {
-						$("[data-sticky_column]").stick_in_parent({
-							parent		: "[data-sticky_parent]",
-							offset_top	: 102,
-							offset_bottom  : 40
-						});
-					});
-				});
+				// $('#about').infinitescroll("destroy").infinitescroll({
+				// 	pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
+    //   				bufferPx: Math.round( $(window).height() * 0.9 )
+				// }, function( appended ) {
+					
+				// 	for( var elem in appended )
+				// 		$(appended[elem]).sticky({ offset: 72 });
+				// });
 			</script>
 
 <?php get_footer(); ?>

@@ -57,7 +57,7 @@ function initPage() {
 	{
 		$('.loading').addClass('active');
 
-		$container.hide().isotope({
+		$container.isotope({
 			itemSelector: '.item',
 			layoutMode: 'masonry',
 			masonry: {
@@ -214,20 +214,17 @@ $(function() {
 			$('html, body').scrollTop(0);
 			
 			$("#container").stop(true).hide().empty()
-				.each(function() {
 					
-					$("#container").hide();
-					if(Router.relativeUrl() == 'objects' && objectsCache)
-						$("#container").html(objectsCache)
-							.promise().done(function(){
-								setTimeout(function(){
-									$('html, body').scrollTop(objectsScrollPosition);
-								},10)
-							})
-					else
-						$("#container").html(content);
-					$("#navigation .menu").html(menu);
-				}).fadeIn('slow');
+			if(Router.relativeUrl() == 'objects' && objectsCache)
+				$("#container").html(objectsCache)
+					.promise().done(function(){
+							$("#container").fadeIn('slow');
+							$('html, body').scrollTop(objectsScrollPosition);
+					})
+			else
+				$("#container").html(content).fadeIn('slow');;
+			$("#navigation .menu").html(menu);
+		
 
 			initPage();
 

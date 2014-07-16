@@ -33,10 +33,40 @@
 		'order' => 'DESC',
 		'paged' => $paged
 	);
+
+
 	
-	if( isset($_REQUEST['search']) && !empty($_REQUEST['search']) )
-		$args['s'] = mysql_real_escape_string($_REQUEST['search']);
-	
+	if( isset($_REQUEST['search']) && !empty($_REQUEST['search']) ){
+        $searchString = urldecode($_REQUEST['search']);
+		$args['relation'] =  'OR';
+        $args['s'] = $searchString;
+
+        $args2 = array(
+            'post_type' => 'objects',
+            'posts_per_page' => 30,
+            'order' => 'DESC',
+            'paged' => $paged
+        ); 
+
+        $args2['meta_query'] = array(
+            'relation' => 'OR', /* <-- here */
+            array(
+                'key' => 'Designer',
+                'value' => $searchString,
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'Manufacturer',
+                'value' => $searchString,
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'productType',
+                'value' => $searchString,
+                'compare' => 'LIKE'
+            ),
+        );
+    }
 	if( isset($_REQUEST['designer_id']) && !empty($_REQUEST['designer_id']) )
 		$args = wp_filter_add_meta('designer_id', $_REQUEST['designer_id'], $args);
 		
@@ -44,7 +74,7 @@
 		$args = wp_filter_add_meta('manufacturer_id', $_REQUEST['manufacturer_id'], $args);
 		
 	if( isset($_REQUEST['category_id']) && !empty($_REQUEST['category_id']) )
-		$args['tag_id'] = $_REQUEST['category_id'];
+		$args['tag'] = $_REQUEST['category_id'];
 ?>     
 
 			<?php
@@ -116,13 +146,13 @@
                             	<ul>
                                 	<li><a href="?">All</a></li>
                             		<?php 
-                                        // $categories = get_categories('hide_empty=0');
+                                        $categories = get_categories('hide_empty=0');
 								
-                            		  $categories = get_tags();
+                            		  // $categories = get_tags();
 									
 									if( $categories ) foreach($categories as $category) : ?>
                                     	<?php if ( !empty( $category->name ) ) : ?>
-                                    	<li><a href="<?php wp_filter_url_build('category_id', $category->term_id); ?>"><?php echo $category->name; ?></a></li>
+                                    	<li><a href="<?php wp_filter_url_build('category_id', $category->slug); ?>"><?php echo $category->name; ?></a></li>
                                         <?php endif; ?>
 									<?php endforeach; ?>
                                 </ul>
@@ -137,8 +167,42 @@
                 	<i class="fa fa-search"></i>
                 </a>
             	<div class="gutter-sizer"></div>
-                <?php query_posts( $args ); ?>
-                <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
+                <?php 
+                
+                    if(!$args2){
+                        $result = new WP_Query($args);
+                        // $result->query( $args );
+                    }
+                    else{
+                        $q1 = new WP_Query($args);
+                        $q2 = new WP_Query($args2);
+
+                        $merged = array_merge( $q1->posts, $q2->posts );
+                        
+                        $post_ids = array();
+                        foreach( $merged as $item ) {
+                            $post_ids[] = $item->ID;
+                        }
+
+                        $unique = array_unique($post_ids);
+
+                        if(count($unique))
+                            $result = new WP_Query(
+                                array(
+                                'post__in' => $unique,
+                                'post_type' => 'objects',
+                                'nopaging' => 1,
+                                'order' => 'DESC',
+                            ));
+                        else{
+                            $result = $q2;
+                        }
+
+                    }
+
+                ?>
+
+                <?php if( $result->have_posts() ) while ( $result->have_posts() ) : $result->the_post(); ?>
                 
                 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'med-large' );
 					$designer = get_post_meta( $post->ID, 'Designer', true );

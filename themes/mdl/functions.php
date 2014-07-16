@@ -97,7 +97,7 @@ function create_post_type() {
 			'rewrite' => array('slug' => 'objects', 'with_front' => false),
 			// page-attributes enables parent/child for posts
 			// 'capability_type' => 'page',
-			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions','custom-fields'),
 			'taxonomies' => array('category', 'post_tag')
 		)
 	);
@@ -238,6 +238,22 @@ function is_ajax() { return false;
 
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 
+// Give me a slug form title
+function getSlug( $url ) {
+    # Prep string with some basic normalization
+    $url = strtolower($url);
+    $url = strip_tags($url);
+    $url = stripslashes($url);
+    $url = html_entity_decode($url);
+    # Remove quotes (can't, etc.)
+    $url = str_replace('\'', '', $url);
+    # Replace non-alpha numeric with hyphens
+    $match = '/[^a-z0-9]+/';
+    $replace = '-';
+    $url = preg_replace($match, $replace, $url);
+    $url = trim($url, '-');
+    return $url;
+}
 
 function theme_script_and_style()
 {
