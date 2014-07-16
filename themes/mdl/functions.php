@@ -39,7 +39,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function create_post_type() {
 	
-	register_post_type( 'Slider',
+	/*register_post_type( 'Slider',
 		array(
 			'labels' => array(
 				'name' => __( 'Slider' ),
@@ -50,7 +50,7 @@ function create_post_type() {
 			'has_archive' => false,
 			'supports' => array('title', 'thumbnail')
 		)
-	);
+	);*/
 	
 	register_post_type( 'Books',
 		array(
@@ -102,7 +102,7 @@ function create_post_type() {
 		)
 	);
 
-   register_taxonomy(
+  /* register_taxonomy(
       'object_categories',
       'objects',
       array(
@@ -120,7 +120,7 @@ function create_post_type() {
           'hierarchical' => true,
           'hasArchive' => true
       )
-  );
+  );*/
 
 
 	register_post_type( 'Designer',
@@ -166,7 +166,7 @@ function create_post_type() {
 			'public' => true,
 			'publically_queryable' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'news', 'with_front' => false),
+			'rewrite' => array('slug' => 'press', 'with_front' => false),
 			'hierarchical' => true,
 			// page-attributes enables parent/child for posts
 			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),

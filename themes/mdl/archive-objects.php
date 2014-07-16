@@ -44,31 +44,48 @@
 		$args = wp_filter_add_meta('manufacturer_id', $_REQUEST['manufacturer_id'], $args);
 		
 	if( isset($_REQUEST['category_id']) && !empty($_REQUEST['category_id']) )
-		$args['cat'] = $_REQUEST['category_id'];
-?>
+		$args['tag_id'] = $_REQUEST['category_id'];
+?>     
 
-<!-- 			<div id="page" class="container">
-            	<div class="page-the">The Show</div>
-                <div class="page-title"><h1>An Inside Look at Innovative Product Design.</h1></div>
-                <div class="page-excerpt">Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value....</div>
-                <div class="page-excerpt-full">Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals. Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals. Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals. Lisa S. Roberts began her "Antiques of the Future" collection in the early nineteen eighties. Intended to raise public awareness of superior product design, her collection includes upwards of 250 products that she believes will significantly increase in value, once they are no longer in production. Because Lisa has to be selective in choosing products for her collection, she draws on the advice of a team of museum curators, industrial and graphic designers, store owners, and other design professionals.</div>
+			<?php
+           		
+			query_posts( array( 'pagename' => 'objects' ) );
+            	
+			if( have_posts() ) while ( have_posts() ) : the_post();
+			
+			?>
+			<div id="page" class="container">
+            	<div class="page-the" style="color: #c8dd0a;">Antiques of the Future</div>
+                <div class="page-title"><h1><?php the_field('sub-title'); ?></h1></div>
+                <div class="page-excerpt"><?php the_excerpt(); ?></div>
+                <div class="page-excerpt-full"><?php the_content(); ?></div>
                 <div class="page-read-more">
-                	<a href="#" onclick="return showPage(this);">Read More</a>
+                	<a href="#" class="external" onclick="return showPage(this);">Read More</a>
                 </div>
-            </div>   -->        
+            </div>
+            <?php endwhile; ?>
 			
             <div class="container nav-panel">
             	<div class="selector">
                 	<div class="panel">
                         <ul class="menu">
                             <li class="quick">
-                            	<a href="#" class="external" onclick="return showDrop(this, '#designers');" style="color: #d70377;">Designer</a>
+                            	<a href="#" class="external" onclick="return showDrop(this, '#designers');" style="color: #d70377;">
+                                	<span>Designer</span>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
                             </li>
                             <li class="quick">
-                            	<a href="#" class="external" onclick="return showDrop(this, '#manufacturer');">Manufacturer</a>
+                            	<a href="#" class="external" onclick="return showDrop(this, '#manufacturer');">
+                                	<span>Manufacturer</span>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
                             </li>
                             <li class="quick">
-                            	<a href="#" class="external" onclick="return showDrop(this, '#categories');" style="color: #00bcff;">Category</a>
+                            	<a href="#" class="external" onclick="return showDrop(this, '#categories');" style="color: #00bcff;">
+                                	<span>Category</span>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
                             </li>
                             
                             <div class="drop" id="designers">
@@ -98,10 +115,15 @@
                             <div class="drop" id="categories">
                             	<ul>
                                 	<li><a href="?">All</a></li>
-                            		<?php $categories = get_categories('hide_empty=0');
+                            		<?php 
+                                        // $categories = get_categories('hide_empty=0');
 								
+                            		  $categories = get_tags();
+									
 									if( $categories ) foreach($categories as $category) : ?>
-                                    	<li><a href="<?php wp_filter_url_build('category_id', $category->term_id); ?>"><?php echo $category->cat_name; ?></a></li>
+                                    	<?php if ( !empty( $category->name ) ) : ?>
+                                    	<li><a href="<?php wp_filter_url_build('category_id', $category->term_id); ?>"><?php echo $category->name; ?></a></li>
+                                        <?php endif; ?>
 									<?php endforeach; ?>
                                 </ul>
                             </div>
@@ -111,7 +133,9 @@
             </div>
             
             <div id="grid" class="container">
-            	<a href="#" class="search-btn external" onclick="$('#search').addClass('show'); return false;"></a>
+            	<a href="#" class="search-btn external" onclick="$('#search').addClass('show'); return false;">
+                	<i class="fa fa-search"></i>
+                </a>
             	<div class="gutter-sizer"></div>
                 <?php query_posts( $args ); ?>
                 <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -121,13 +145,15 @@
 					$category = get_the_category();
 				?>
             	<article class="item post hide" id="post-<?php the_ID(); ?>">
-                	<img src="<?php echo $thumb[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb[2]; ?>">
-                    <a href="<?php the_permalink(); ?>" class="display">
-                    	<h2><?php the_title(); ?></h2>
-                        <div class="desc">
-                        	<span class="date"><?php the_time('Y'); ?></span> | <span class="designer"><?php echo $designer; ?></span>
+                	<a href="<?php the_permalink(); ?>">
+                        <img src="<?php echo $thumb[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb[2]; ?>">
+                        <div class="display">
+                            <h2><?php the_title(); ?></h2>
+                            <div class="desc">
+                                <span class="date"><?php the_time('Y'); ?></span> | <span class="designer"><?php echo $designer; ?></span>
+                            </div>
+                            <div class="category"><?php echo $category[0]->cat_name; ?></div>
                         </div>
-                        <div class="category"><?php echo $category[0]->cat_name; ?></div>
                     </a>
                 </article>
                 
@@ -148,47 +174,29 @@
                     loader : $('.loading'),
                     containerSelector : '#grid',
                     itemSelector: '.item',
-                    // totalPages = opts.totalPages
                     after : function(newElements){
-                        Infscroll.okToLoad=false;
+                        Infscroll.okToLoad = false;
                         $container.imagesLoaded(function() {
                             Infscroll.okToLoad = true;
                         })
-                        $container.find('img').each(function(){
-                            $(this).on('load',function(){
-                                var $item =  $(this).parent();
-                                $container.isotope('appended', $item.removeClass('hide'));
-                                $item.find('.display').css( 'top', ( $item.innerHeight() - $item.find('.display').innerHeight()) / 2 );
-                            })
-                        })
 
-                        // $container.imagesLoaded(function() {
-                        //  $container.isotope('appended', $(newElements).removeClass('hide'));
-                        //  $container.find('.item').each(function() {
-                        //     $(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
-                        // });
-                    // });
+                        $(newElements).each(function() {
+							var self = $(this);
+							
+							self.find('img').one("load", function() {
+								$container.isotope('appended', self.removeClass('hide'));
+								$container.find('.item').each(function() {
+									 $(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
+								});
+                            }).each(function() {
+                                if(this.complete)
+									$(this).load();
+                            });
+						});
                     }
 
                 })
             })
-
-				// var $container = $('#grid');
-
-				
-				// $container.infinitescroll("destroy").infinitescroll({
-				// 	pixelsFromNavToBottom: -Math.round( $(window).height() * 0.6 ),
-    //   				bufferPx: Math.round( $(window).height() * 0.9 )
-				// }, function( newElements, self ) {
-                    
-    //                 // $container.find('.navigation a').attr('href',self.path[0] + (self.state.currPage + 1) + '/');
-					// $container.imagesLoaded(function() {
-     //                     $container.isotope('appended', $(newElements).removeClass('hide'));
-					// 	 $container.find('.item').each(function() {
-					// 		$(this).find('.display').css( 'top', ( $(this).innerHeight() - $(this).find('.display').innerHeight()) / 2 );
-					// 	});
-     //            	});
-				// });
 			</script>
 
 <?php get_footer(); ?>

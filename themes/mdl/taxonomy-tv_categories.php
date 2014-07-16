@@ -12,7 +12,7 @@
                 <div class="page-excerpt"><?php the_excerpt(); ?></div>
                 <div class="page-excerpt-full"><?php the_content(); ?></div>
                 <div class="page-read-more">
-                	<a href="#" onclick="return showPage(this);">Read More</a>
+                	<a href="#" class="external" onclick="return showPage(this);">Read More</a>
                 </div>
             </div>
             <?php endwhile; ?>
@@ -21,8 +21,11 @@
             	<div class="selector">
                 	<div class="panel">
                         <ul class="menu">
-                            <li class="quick">
-                            	<a href="#" class="external" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">Episodes</a>
+                            <li class="quick blue">
+                            	<a href="#" class="external" onclick="$(this).parent().toggleClass('active'); $('.drop').toggleClass('show'); return false;">
+                                	<span>Episodes</span>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
                             </li>
                             
                             <div class="drop">
@@ -57,7 +60,7 @@
 					$video_url = get_post_meta( $post->ID, 'video_url', true );
 				?>
                 
-                <article class="post video stickem-container" id="post-<?php the_ID(); ?>">
+                <article class="post video stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
                     <div class="content">
                     	<div class="main">
                         	<h2><?php the_title(); ?></h2>
@@ -66,7 +69,7 @@
                         </div>
                     </div>
                     <div class="aside">
-                    	<div class="image stickem">
+                    	<div class="image stickem" data-sticky_column>
                         	<div class="player">
                             	<?php if ( !empty($video_url) ) : ?>
                             	<div style="height: 282px; overflow: hidden;" class="ytPlayer" data-property="{videoURL:'<?php echo $video_url; ?>',containment:'self',autoPlay:false, mute:false, startAt:0, opacity:1, loop:false}">
