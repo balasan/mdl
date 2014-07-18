@@ -126,10 +126,10 @@ var Router = (function() {
 
 					var $response = $(data);
 
-					routerFunction(relativeUrl)
 
 					currentUrl = url;
 					after($response);
+					routerFunction(relativeUrl)
 
 					if (typeof window._gaq !== 'undefined') {
 						window._gaq.push(['_trackPageview', relativeUrl]);

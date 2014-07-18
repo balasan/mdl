@@ -34,8 +34,11 @@
                         <h2><?php the_title(); ?></h2>
                         <p><?php the_content(); ?></p>
                         <div class="enlarge">
-                        	<a href="<?php echo $src; ?>" target="_blank" class="enlarge-btn">Enlarge +</a>
+                        	<a href="<?php echo $src; ?>" target="_blank" class="external enlarge-btn">Enlarge +</a>
                             <script type="text/javascript">
+                                $('.enlarge-btn').on('click',function(e){
+                                    e.preventDefault();
+                                })
 								$('.enlarge-btn').fancybox({
 									openEffect  : 'elastic',
 									closeEffect : 'elastic',
@@ -49,6 +52,9 @@
 										},
 										overlay :
 										{
+                                            // css : {'background' : 'white', 'opacity':.8},
+                                            // speedIn: 1500, 
+                                            // speedOut: 1500,
 											locked: false
 										}
 									}

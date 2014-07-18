@@ -8,7 +8,7 @@
 			
 			?>
 			<div id="page" class="container">
-            	<div class="page-the">The Show</div>
+            	<div class="page-the">My Design Life</div>
                 <div class="page-title"><h1><?php the_field('sub-title'); ?></h1></div>
                 <div class="page-excerpt"><?php the_excerpt(); ?></div>
                 <div class="page-excerpt-full"><?php the_content(); ?></div>
@@ -53,7 +53,7 @@
 				?>
                 
                 <article class="post video stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
-                    <div class="content">
+                    <div class="content desktop-small">
                     	<div class="main">
                         	<h2><?php the_title(); ?></h2>
                             <h3><?php echo $subtitle; ?></h3>
@@ -64,10 +64,22 @@
                     	<div class="image stickem" data-sticky_column>
                         	<div class="player">
                             	<?php if ( !empty($video_url) ) : ?>
-                            	<div style="height: 282px; overflow: hidden;" class="ytPlayer" data-property="{videoURL:'<?php echo $video_url; ?>',containment:'self',autoPlay:false, mute:false, startAt:0, opacity:1, loop:false}">
-                                </div>
+                                
+                                
+
+                                <a href="<?php echo $video_url; ?>" class="video-link"></a>
+                            	
+                                <!-- <div style="height: 282px; overflow: hidden;" class="ytPlayer" data-property="{videoURL:'<?php echo $video_url; ?>',containment:'self',autoPlay:false, mute:false, startAt:0, opacity:1, loop:false}"> -->
+                                <!-- </div> -->
                                 <?php endif; ?>
                             </div>
+                        </div>
+                    </div>
+                    <div class="content mobile-small">
+                        <div class="main">
+                            <h2><?php the_title(); ?></h2>
+                            <h3><?php echo $subtitle; ?></h3>
+                            <p><?php the_content(); ?></p>
                         </div>
                     </div>
                 </article>
@@ -79,9 +91,11 @@
             <div class="navigation"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div>
             
             <script type="text/javascript">
-				$(function() {
-					$(".ytPlayer").mb_YTPlayer();
-				});
+
+            $('document').ready(function(){
+
+            })
+
 			</script>
 
 <?php get_footer(); ?>

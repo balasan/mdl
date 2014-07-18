@@ -20,8 +20,8 @@
                     <div class="swiper-wrapper">
                     	<?php while ( have_rows('slideshow_images') ) : the_row(); ?>
                         <?php $image = get_sub_field('image'); ?>
-                        <div class="swiper-slide" style="background: url('<?php echo $image['url']; ?>') no-repeat center center; background-size: cover; text-indent: -9999px;">
-                            <h2><?php echo $image['title']; ?></h2>
+                        <div class="swiper-slide" style="background-image: url('<?php echo $image['url']; ?>') ">
+                            <!-- <h2><?php echo $image['title']; ?></h2> -->
                         </div>
                         <?php endwhile; ?>
                     </div>
