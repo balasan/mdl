@@ -193,9 +193,17 @@ function showDrop(elem, id)
 	return false;
 };
 
+function hideDrops()
+{		
+	$('.menu li').removeClass('active');
+	$('.drop').removeClass('show');
+	
+	return false;
+};
+
 function showEpisode(id)
 {
-	var _scrollTop = $('#post-' + id + ' .main').offset().top;	
+	var _scrollTop = $('#post-' + id + ' .image ').offset().top;	
 	
 	$('body, html').animate({ 'scrollTop': _scrollTop - 132 }, 'slow');
 	
