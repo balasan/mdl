@@ -146,11 +146,7 @@ img { border:none; }
 
 }
 
-#navigation .logo.atf.scroll{
-	height: 24px;
-	padding:8px;
-	margin-bottom:0px;
-}
+
 
 #navigation .logo.scroll {
 	/*background: url(../images/atflogo.jpg) no-repeat;*/
@@ -159,8 +155,6 @@ img { border:none; }
 	height: 30px;
 	position: relative;
 	margin-bottom:10px;
-	transform: translate(-10px);
-	-webkit-transform: translateY(-10px);
 }
 #navigation .menu {
 	font-weight: 500;
@@ -375,6 +369,12 @@ img { border:none; }
 	margin: 0 auto;
 }
 
+@media screen and (max-width: 1080px) and (min-width: 980px) {
+	#navigation .logo {
+		height: 38px;
+		width: 360px;
+	}
+}
 @media screen and (max-width: 980px) {
 	.nav-panel {
 		height: auto !important;
@@ -451,6 +451,10 @@ img { border:none; }
 }
 .nav-panel .selector .menu .drop ul li a {
 	color: #000 !important;
+}
+
+.nav-panel .selector .menu .drop .close {
+	
 }
 
 #slider {
@@ -1060,7 +1064,7 @@ img { border:none; }
 	background: white;
 }
 .ytplayer{
-	opacity:0	
+	opacity:0;	
 
 	-webkit-transition: opacity 0.5s ease-in;
 	-moz-transition: opacity 0.5s ease-in;
@@ -1523,7 +1527,7 @@ img { border:none; }
 	#navigation .logo {
 		/*background: url(../images/logo-medium.png) no-repeat;*/
 		/*width: 148px;*/
-		height: 20px;
+		height: 49px;
 		position: relative;
 		/*background-size: 100% 100%;*/
 		top: -10px;
@@ -1539,16 +1543,94 @@ img { border:none; }
 	.nav-panel.fixed .selector .menu {
 		width: 100%;
 	}
-	.nav-panel .selector .menu .drop ul {
+	.nav-panel .selector .menu .drop ul,
+	.nav-panel .selector .menu .drop ul li {
 		width: 100%;
 	}
 	.nav-panel .selector .menu .drop {
 		overflow: auto;
 		max-height: 400px;	
 	}
+	
+	#navigation .logo, .nav-btn {
+		top: auto !important;		
+	}
+	.nav-panel .selector .menu .drop {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0; top: 0;
+		max-height: none;
+		z-index: 999999;
+	}
+	
+	.nav-panel .selector .menu .drop .close {
+		display: block;
+		position: fixed;
+		width: 50px; height: 50px;
+		text-align: center;
+		line-height: 50px;
+		top: 35px; right: 35px;
+		font-size: 20px;
+		color: #787878;
+		cursor: pointer;
+	}
+	.nav-panel .selector .menu .drop .close i {
+		width: 50px; height: 50px;
+		text-align: center;
+		line-height: 50px;
+	}
 }
 
 @media screen and (max-width: 640px) {
+	
+	.nav-panel {
+		height: auto !important;
+	}	
+	.nav-panel .selector {
+		position: static !important;
+		padding: 0 !important;
+		height: auto !important;
+	}
+	.nav-panel .selector .panel {
+		padding: 0 !important;
+		height: auto !important;
+		
+		-webkit-box-shadow: none !important;
+		   -moz-box-shadow: none !important;
+				box-shadow: none !important;
+	}	
+	.nav-panel .menu {
+		height: auto !important;
+	}
+	
+	.nav-panel .selector .menu .quick {
+		display: inline-block !important;
+		float: none !important;		
+	}
+	
+	.search-btn { display: none !important; }
+	
+	#navigation .logo {
+		height: 24px !important;
+		position: relative;
+		margin-right: 0;
+	}
+	
+	#page {
+		padding: 25px 20px 80px 20px !important;
+	}
+	#page .page-the {
+		line-height: 36px;
+	}
+	.post .image {
+		padding: 15px 15px 30px 15px !important;
+	}
+	.post .main {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+		padding-bottom: 25px !important;
+	}
 
 	.desktop-small{
 		display:none !important;
@@ -1583,6 +1665,7 @@ img { border:none; }
 	
 	#wrapper {
 		padding-bottom: 0;
+		padding-top: 72px !important;
 	}
 	
 	.stickem {
@@ -1595,9 +1678,19 @@ img { border:none; }
 		display: none !important;
 	}
 	
+	#press h1 {
+		margin-bottom: 30px;
+		padding: 0 15px;
+	}
+	#press .press {
+		max-width: none;
+		margin-bottom: 10px;
+		
+	}
 	#press .wrapper {
 		width: 100%;
-		margin-left: 0;	
+		margin-left: 0;
+		padding: 20px 0 !important;	
 	}
 	#press .press-year .cron .year {
 		width: 100%;
@@ -1631,7 +1724,21 @@ img { border:none; }
 		position: static !important;
 		height: auto !important;
 		width: auto !important;	
-	}	
+	}
+	
+	#videos .aside,
+	#videos .content {
+		background: white;
+		display: block;
+		width: 100%;
+	}
+	#videos .content {
+		padding-top: 0;
+	}
+	#videos .video {
+		margin-bottom: 20px;
+	}
+		
 	#about .person {
 		border-bottom: 1px solid #cfcfcf;
 		display: block;

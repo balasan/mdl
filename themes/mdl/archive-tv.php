@@ -36,6 +36,7 @@
                                     <li><a href="#" class="external" onclick="return showEpisode('<?php the_ID(); ?>');"><?php the_title(); ?></a></li>
                                 <?php endwhile; ?>
                                 </ul>
+                                <div class="close" onclick="hideDrops();"><i class="fa fa-chevron-right"></i></div>
                             </div>
                         </ul>
                     </div>

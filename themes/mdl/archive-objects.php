@@ -128,6 +128,7 @@
                                         <?php endif; ?>
                                     <?php endwhile; ?>
                                 </ul>
+                                <div class="close" onclick="hideDrops();"><i class="fa fa-chevron-right"></i></div>
                             </div>
                             
                             <div class="drop" id="manufacturer">
@@ -140,6 +141,7 @@
                                         <?php endif; ?>
                                     <?php endwhile; ?>
                                 </ul>
+                                <div class="close" onclick="hideDrops();"><i class="fa fa-chevron-right"></i></div>
                             </div>
                             
                             <div class="drop" id="categories">
@@ -156,6 +158,7 @@
                                         <?php endif; ?>
 									<?php endforeach; ?>
                                 </ul>
+                                <div class="close" onclick="hideDrops();"><i class="fa fa-chevron-right"></i></div>
                             </div>
                         </ul>
                     </div>
