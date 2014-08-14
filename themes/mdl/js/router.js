@@ -83,6 +83,8 @@ var Router = (function() {
 					return;
 				if (this.href == "javascript:void(0)")
 					return;
+				if (this.href.match("mailto:")!=null)
+					return;
 				//everything you don't want to be ajax
 				if ($(this).is(opt.ignore ? opt.ignore : defaultOptions.ignore)) {
 					return;
@@ -125,8 +127,6 @@ var Router = (function() {
 				success: function(data) {
 
 					var $response = $(data);
-
-
 					currentUrl = url;
 					after($response);
 					routerFunction(relativeUrl)

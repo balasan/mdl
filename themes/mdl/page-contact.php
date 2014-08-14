@@ -5,27 +5,23 @@
 	// query_posts( array( 'post_type' => 'designer', 'posts_per_page' => 10, 'order' => 'DESC', 'paged' => $paged ) );
 
 ?>
+
+            <div id="press" class="container">
+                
+
+
     		<div id="about" class="container">
-            	
+
                 <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
                 
-                <?php
-                	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $src = $thumb['0'];
-					$collaborations = get_post_meta( $post->ID, 'collaborations', true );
-					$subtitle = get_post_meta( $post->ID, 'subtitle', true ); ?>
+  
+                <div class="wrapper">
                 
-                <article class="post person stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
-                    
-                    <div class="aside">
-                        <div class="image stickem" data-sticky_column>
-                            <?php if( !empty( $src ) ) : ?>
-                            <img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    
+
                     <div class="content">
-                    	<div class="main">
+                         <h1>Contact</h1>
+
+                    	<div class="contact">
                         	<h2><?php the_field('title'); ?></h2>
                             <h3><?php echo $subtitle; ?></h3>
                         	<p><?php the_content(); ?></p>
@@ -38,7 +34,7 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                </article>
+                </div>
                 
                 <?php endwhile; ?>
                 

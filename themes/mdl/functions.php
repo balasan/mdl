@@ -174,6 +174,23 @@ function create_post_type() {
 		)
 	);
 	
+	register_post_type( 'Events',
+		array(
+			'labels' => array(
+				'name' => __( 'Events' ),
+				'singular_name' => __( 'Event' )
+			),
+			'public' => true,
+			'publically_queryable' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'events', 'with_front' => false),
+			'hierarchical' => true,
+			// page-attributes enables parent/child for posts
+			'supports' => array('page-attributes', 'title','editor','thumbnail', 'revisions'),
+			// 'taxonomies' => array('category')
+		)
+	);
+
 	register_post_type( 'tv',
 		array(
 			'labels' => array(

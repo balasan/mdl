@@ -9,7 +9,8 @@
                 <li><a href="<?php echo esc_url( home_url( '/' ) )?>about/">About</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/' ) )?>tv/">TV</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/' ) )?>press/">Press</a></li>
-            	<li><a href="#">Contact</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/' ) )?>events/">Events</a></li>
+            	<li><a href="<?php echo esc_url( home_url( '/' ) )?>contact/">Contact</a></li>
         	</ul>
         </nav>
         <ul id="socs">

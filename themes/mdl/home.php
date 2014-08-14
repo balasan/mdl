@@ -33,17 +33,20 @@
             <?php endif; ?>
             
             <div id="splash" class="container">
-            	<div class="splash-content">
-                	<?php the_content(); ?>
+              
+                <div class="splash-content desktop-small">
+                  <?php the_content(); ?>
                 </div>
+
                 <div class="splash-about">
-                	<div class="image">
-                    <?php $image = get_field('book_image');
- 
-					if( !empty($image) ): ?>
+                    <div class="image">
+                      <?php $image = get_field('book_image');
+
+            					if( !empty($image) ): ?>
                         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                    <?php endif; ?>
+                      <?php endif; ?>
                     </div>
+                    
                     <div class="main">
                     	<a target="_blank" href="<?php the_field('book_link'); ?>" class="external">
                             <div class="link">
@@ -62,6 +65,11 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="splash-content mobile-small">
+                  <?php the_content(); ?>
+                </div>
+
             </div>
             <?php endwhile; ?>
             

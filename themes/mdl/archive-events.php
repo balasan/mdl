@@ -5,7 +5,7 @@
 	$lastYear = 0;
 	
 	$args = array(
-		'post_type' => 'press',
+		'post_type' => 'events',
 		'posts_per_page' => -1,
 		'order' => 'DESC',
 		'paged' => $paged,
@@ -19,11 +19,14 @@
             	
                 <div class="wrapper">
                 
-                <h1>Press</h1>
+                <h1>Events</h1>
                 
                 <?php if( have_posts() ) while ( have_posts() ) : the_post();
                 	$time = strtotime(get_field('date'));
-                	$Y = date('Y', $time);
+                	$Y = date('m', $time);
+                    $M = date('M', $time);
+                    $year = date('Y', $time);
+
 					
 					if( $lastYear == 0 )
 						$lastYear = $Y; 
@@ -32,7 +35,7 @@
 					?>
                     <div class="press-year">
 						<div class="cron">
-							<div class="year"><?php echo $Y; ?></div>
+							<div class="year"><?php echo $M.", ".$year; ?></div>
                         </div>
                     </div>
                     <?php endif; 
