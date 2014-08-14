@@ -203,8 +203,8 @@ img { border:none; }
 }
 #navigation .menu li a.aotf.active,
 #navigation .menu li a.aotf:hover {
-	color: #c8dd0a;
-	border-bottom: 4px solid #c8dd0a;
+	color: rgba(175, 192, 20, 1);
+	border-bottom: 4px solid rgba(175, 192, 20, 1);
 }
 #navigation .menu li a.about.active,
 #navigation .menu li a.about:hover {
@@ -609,7 +609,7 @@ img { border:none; }
 	background: white;
 	padding: 10px 0;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 }
 #grid .item.hide {
 	visibility: hidden;		

@@ -85,7 +85,7 @@
 			
 			?>
 			<div id="page" class="container">
-            	<div class="page-the" style="color: #c8dd0a;">Antiques of the Future</div>
+            	<div class="page-the" style="color: rgba(175, 192, 20, 1);">Antiques of the Future</div>
                 <div class="page-title"><h1><?php the_field('sub-title'); ?></h1></div>
                 <div class="page-excerpt"><?php the_excerpt(); ?></div>
                 <div class="page-excerpt-full"><?php the_content(); ?></div>
