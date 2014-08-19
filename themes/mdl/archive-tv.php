@@ -36,7 +36,7 @@
                                     <li><a href="#" class="external" onclick="return showEpisode('<?php the_ID(); ?>');"><?php the_title(); ?></a></li>
                                 <?php endwhile; ?>
                                 </ul>
-                                <div class="close" onclick="hideDrops();"><i class="fa fa-chevron-right"></i></div>
+                                <div class="close" style="display: none;" onclick="hideDrops();"><i class="fa fa-chevron-right"></i></div>
                             </div>
                         </ul>
                     </div>
@@ -90,11 +90,5 @@
             </div>
             
             <div class="navigation"><a href="<?php echo get_next_posts_page_link(); ?>">More</a></div>
-            
-            <script type="text/javascript">
-
-
-
-			</script>
 
 <?php get_footer(); ?>

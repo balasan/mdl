@@ -15,7 +15,7 @@
 					$subtitle = get_post_meta( $post->ID, 'subtitle', true );
 				?>
                 
-            	<article class="post person stickem-container" data-sticky_parent id="post-<?php the_ID(); ?>">
+            	<article class="post person stickem-container book-post" data-sticky_parent id="post-<?php the_ID(); ?>">
                 	<div class="aside">
                     	<div class="image stickem" data-sticky_column>
                         	<?php if( !empty( $src ) ) : ?>
@@ -52,7 +52,7 @@
 					$("[data-sticky_parent]").imagesLoaded(function() {
 						$("[data-sticky_column]").stick_in_parent({
 							parent		: "[data-sticky_parent]",
-							offset_top	: 102,
+							offset_top	: 135,
 							offset_bottom  : 40
 						});
 					});

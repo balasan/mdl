@@ -14,9 +14,9 @@
         	</ul>
         </nav>
         <ul id="socs">
-            <li><a href="#" class="fb fa fa-facebook-square"></a></li>
-            <li><a href="#" class="tw fa fa-twitter"></a></li>
-        	<li><a href="#" class="in fa fa-instagram"></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/MyDesignLife" class="fb fa fa-facebook-square"></a></li>
+            <li><a target="_blank" href="https://twitter.com/MyDesignLife" class="tw fa fa-twitter"></a></li>
+        	<li><a target="_blank" href="http://instagram.com/thelisaroberts" class="in fa fa-instagram"></a></li>
     	</ul>
 	</footer>
     

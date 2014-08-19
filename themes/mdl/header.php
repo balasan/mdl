@@ -35,6 +35,7 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.easing-1.3.min.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/jquery.mousewheel.min.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js?v=2.1.5' ?>"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/history.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/history.adapter.jquery.js' ?>"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/router.js' ?>"></script>

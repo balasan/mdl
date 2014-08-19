@@ -111,7 +111,7 @@ img { border:none; }
 
 #header {
 	position: fixed;
-	/*height: 105px;*/
+	height: 105px;
 	top: 0; left: 0;
 	width: 100%;
 	z-index: 1005;
@@ -128,7 +128,7 @@ img { border:none; }
 	padding: 23px 12px 0 12px;
 	background: #fff;
 	overflow: hidden;
-	min-height: 72px;
+	height: 105px;
 	
 	-webkit-box-sizing: border-box;
    	   -moz-box-sizing: border-box;
@@ -326,6 +326,7 @@ img { border:none; }
 	line-height: 40px;
 	list-style: none;
 	position: relative;
+	text-align: right;
 }
 .nav-panel .selector .menu li.quick {
 	float: right;
@@ -370,7 +371,7 @@ img { border:none; }
 }
 .nav-panel.fixed .selector {
 	position: fixed;
-	top: 72px; left: 0;
+	top: 105px; left: 0;
 	width: 100%;
 	z-index: 1001;
 	padding: 0 21px;
@@ -423,6 +424,7 @@ img { border:none; }
 	opacity: 0;
 	max-height: 400px;
 	overflow-y: auto;
+	text-align: left;
 	
 	-webkit-box-sizing: border-box;
    	   -moz-box-sizing: border-box;
@@ -481,14 +483,12 @@ img { border:none; }
 	width: 80%;
 	margin: 0 auto 20px auto;
 }
-.swiper-container{
-	height:100% !important;
-
-}
 #slider .swiper-container {
 	/*height: auto;*/
+	height: 500px;
 }
 #slider .swiper-container, .swiper-slide {
+	float: none !important;
 	/*width: 100%;*/
 	/*height: auto;*/
 	/*position: relative;*/
@@ -496,11 +496,56 @@ img { border:none; }
 	background-size:cover;
 	background-position:center;
 	cursor:pointer;
+	height: 500px;
 
+}
+#slider .swiper-wrapper {
+	height: 500px;
+	position: relative;
 }
 #slider .swiper-container, .swiper-slide img {
 	/*width: 100%;*/
 	/*height: 100%;*/
+}
+#slider .swiper-wrapper .into {
+	position: absolute;
+	bottom: 100px;
+	right: 50px;
+	width: 270px;
+	font-family: "Gotham Book", sans-serif;
+	font-size: 14px;
+	color: white;
+	line-height: 20px;
+	text-shadow: 1px 1px 0 #000;
+}
+#slider .swiper-wrapper .into .socs {
+	list-style: none;
+	position: absolute;
+	top: 107px; left: 50%;
+	width: 118px;
+	margin-left: -59px;
+}
+#slider .swiper-wrapper .into .socs li {
+	float: left;
+	margin-right: 24px;
+}
+#slider .swiper-wrapper .into .socs li:last-child {
+	margin-right: 0;
+}
+#slider .swiper-wrapper .into .socs li a {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	font-size: 26px;
+	color: white;
+	
+	-webkit-transition: color 0.5s ease-out;
+	   -moz-transition: color 0.5s ease-out;
+		 -o-transition: color 0.5s ease-out;
+			transition: color 0.5s ease-out;
+}
+#slider .swiper-wrapper .into a {
+	color: white;
 }
 #slider .arrow-left {
 	position: absolute;
@@ -1007,9 +1052,10 @@ img { border:none; }
 #splash {
 	padding: 0 0 0 0;
 	overflow: hidden;
-	display:flex;
+	display: block;
+	background: white;
 }
-#splash .splash-content {
+/*#splash .splash-content {
 	float: left;
 	width: 49%;
 	background: white;
@@ -1033,14 +1079,14 @@ img { border:none; }
 	font-size: 29px;
 	font-weight: bold;
 	color: #00bcff;
-}
+}*/
 #splash .splash-about {
-	float: left;
-	width: 49%;
+	width: 100%;
 	background: white;
-	padding: 30px 35px;
-	margin-left: 2%;
+	padding: 0 5% 0 7%;
 	overflow: hidden;
+	height: 128px;
+	line-height: 128px;
 	
 	-webkit-box-sizing: border-box;
    	   -moz-box-sizing: border-box;
@@ -1049,44 +1095,160 @@ img { border:none; }
         	box-sizing: border-box;
 }
 
+#splash .splash-about .splash-about-image {
+	float: left;
+	width: 48%;
+	padding-right: 10px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#splash .splash-about .splash-about-watch {
+	float: left;
+	width: 26%;
+	padding-right: 10px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#splash .splash-about .splash-about-buy {
+	float: left;
+	width: 26%;
+	padding-right: 10px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+
+#splash .splash-about .splash-about-image span {
+	font-family: "Gotham", sans-serif;
+	display: block;
+	font-size: 31px;
+	font-weight: bold;
+	color: #d70377;
+	margin-left: 40%;
+}
+
 #splash .splash-about .image {
 	float: left;
 	width: 35%;
+	padding: 15px 0 0 0;
 }
 
 #splash .splash-about .image img {
-	max-width: 93%;	
+	max-height: 80%;
+	max-width: 100%;	
 }
-#splash .splash-about .main {
-	margin-left: 40%;
-	overflow: hidden;	
-}
-#splash .splash-about .main .link {
+#splash .splash-about .link {
+	display: inline-block;
 	font-family: "Gotham Book", sans-serif;
 	font-size: 13px;
 	color: #4e4c4c;
 	text-align: right;
 	padding-right: 38px;
 	background: url(../images/front-arrow-right.png) no-repeat right center;
-	height: 60px;
-	line-height: 60px;
+	height: 90px;
+	line-height: 90px;
 	margin-bottom: 15px;
+	border-left: 1px solid rgba(0,0,0,0.06);
+	padding-left: 30px;
 }
-#splash .splash-about .main .link .outer {
+#splash .splash-about .link .louter {
 	line-height: normal;
 	vertical-align: middle;
 	display: inline-block;
 }
-#splash .splash-about .main .link .outer span {
-	font-family: "Gotham", sans-serif;
-	display: block;
-	font-size: 31px;
-	font-weight: bold;
-	color: #d70377;
-}
-#splash .splash-about .main .link.watch {
+#splash .splash-about .link.watch {
 	color: #d70377;
 	margin-bottom: 0;
+}
+
+@media screen and (max-width: 840px) {
+
+#splash .splash-about {
+	height: auto;
+	padding: 0;
+	padding-bottom: 15px;
+	line-height: normal;
+}
+#splash .splash-about .splash-about-image {
+	width: 100%;
+	padding-right: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.06);
+	margin-bottom: 15px;
+	text-align: center;
+	line-height: 128px;
+	height: 128px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#splash .splash-about .splash-about-image .image {
+	display: inline-block;
+	width: auto;
+	float: none;
+	height: 128px;
+	
+	-webkit-box-sizing: border-box;
+   	   -moz-box-sizing: border-box;
+    	-ms-box-sizing: border-box;
+    	 -o-box-sizing: border-box;
+        	box-sizing: border-box;
+}
+#splash .splash-about .splash-about-image span {
+	margin-left: 0;
+	display: inline-block;	
+	height: 128px;
+	vertical-align: top;
+	margin-left: 25px;
+}
+#splash .splash-about .splash-about-image img {
+	height: 90px;	
+}
+#splash .splash-about .splash-about-watch {
+	float: left;
+	width: 50%;
+	padding-right: 0;
+	text-align: center;
+	border-left: 1px solid rgba(0,0,0,0.06);
+	height: 100px;
+	padding-right: 20px;
+}
+#splash .splash-about .splash-about-buy {
+	float: left;
+	width: 50%;
+	padding-right: 0;
+	text-align: center;
+	height: 100px;
+	padding-right: 20px;
+}
+#splash .splash-about .link {
+	border: none;
+	padding-left: 0;
+	word-wrap: break-word;
+	min-width: 150px;
+}
+
+}
+
+#about .book-post {
+	margin-bottom: 40px;
+	border-bottom: 0;	
+}
+#about .book-post .aside {
+	padding-top: 0;	
 }
 
 #videos {
@@ -1336,7 +1498,7 @@ img { border:none; }
 
 .search-btn.fixed {
 	position: fixed;	
-	top: 125px;
+	top: 158px;
 	left: auto;
 }
 
@@ -1443,7 +1605,7 @@ img { border:none; }
 				transition: all 0.23s ease-out;
 	}
 
-	#splash{
+	/*#splash{
 		display:block;
 	}
 
@@ -1451,7 +1613,7 @@ img { border:none; }
 		width: 80%;
 		margin: 0 auto 20px auto;
 		float: none;
-	}
+	}*/
 	
 	#navigation .menu {
 		position: fixed;
@@ -1538,7 +1700,7 @@ img { border:none; }
 		padding: 0 12px;
 	}
 	
-	#container .container {
+	#container .container, #slider {
 		width: 100%;	
 	}
 	
@@ -1610,7 +1772,7 @@ img { border:none; }
 	}
 	
 	.nav-panel .selector .menu .drop .close {
-		display: block;
+		display: block !important;
 		position: fixed;
 		width: 50px; height: 50px;
 		text-align: center;
@@ -1662,10 +1824,17 @@ img { border:none; }
 	
 	.nav-panel .selector .menu .quick {
 		display: inline-block !important;
-		float: none !important;		
+		float: none !important;
 	}
 	
-	.search-btn { display: none !important; }
+	.search-btn {
+		position: absolute !important;
+		top: -30px !important;
+		left: 0px !important;
+	}
+	.search-btn i {
+		position: static !important;
+	}
 	
 	#navigation .logo {
 		height: 24px !important;
@@ -1707,12 +1876,6 @@ img { border:none; }
 		padding:0 !important;
 	}
 
-	#splash .splash-content, #splash .splash-about {
-		width: 100%;
-		margin: 0 auto 20px auto;
-		float: none;
-	}
-
 	#container {
 		margin: 0;
 		padding-left: 10px;
@@ -1721,7 +1884,10 @@ img { border:none; }
 	
 	#wrapper {
 		padding-bottom: 0;
-		padding-top: 72px !important;
+	}
+	
+	#about .person:first-child {
+		padding-top: 0;
 	}
 	
 	.stickem {
@@ -1843,6 +2009,7 @@ img { border:none; }
 		display: inline-block;
 		float: none;
 		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 }
 
